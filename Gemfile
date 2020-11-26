@@ -40,15 +40,19 @@ group :development do
   gem 'listen', '~> 3.2'
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'rspec-rails', '~> 4.0.1'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 group :test do
+  gem 'faker'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
+  gem 'rspec-rails', '~> 4.0.1'
+  gem 'shoulda-matchers', '~> 4.0'
   gem 'webdrivers'
 end
 
