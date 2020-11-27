@@ -22,10 +22,10 @@ RSpec.describe User, type: :model do
       expect(u.is_password?('password')).to eq(true)
     end
 
-    it "Verifies correct login credentials" do
+    it "Verifies correct login credentials and returns a user" do
       name = Faker::Name.name
-      User.create(username: name, password: 'password')
-      expect(User.find_by_credentials(name, 'password')).to eq(true)
+      user = User.create(username: name, password: 'password')
+      expect(User.find_by_credentials(name, 'password')).to eq(user)
     end
 
     it "Does not verify incorrect login credentials" do
