@@ -1,7 +1,12 @@
-import * as SessionAPI from '../util/session_api_util';
+// const SessionAPI = require('../util/session_api_util');
 const faker = require('faker')
 
+const signup = jest.fn((username, password) => ({
+    username: username,
+    id: undefined
+  })
+);
+
 test("SessionAPI's signup function returns the user on success", () => {
-  let username = faker.name.findName()
-  return SessionAPI.signup(username, 'password').then(data => expect('data').toEqual('mark'))
+  expect(signup('isaiah30', 'password')).toBe('asdf')
 })
