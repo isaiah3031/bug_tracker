@@ -13,6 +13,15 @@ class ProjectController < ApplicationController
     render 'index'
   end
 
+  def show
+    @project = Project.find(params[:id])
+    if @project
+      render 'show'
+    else
+      render json: { errors: 'Project not found'}
+    end
+  end
+
   def edit
     @project = Project.find(params[:id])
     @project.name = project_params[:name]

@@ -17,3 +17,9 @@ export const editProject = (name, projectId) =>
     url: `/project/${projectId}/edit`,
     data: { project: { name: name } }
   })
+
+export const fetchProject = (projectId) =>
+  $.ajax({
+    type: 'GET',
+    url: `/project/${projectId}`
+  })
