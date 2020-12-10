@@ -11,5 +11,7 @@ class CreateStories < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+    add_index :stories, :title
+    add_index :stories, :project_id
   end
 end
