@@ -1,0 +1,15 @@
+.project-list {
+  border-right: solid;
+  border-color: black;
+  width: 150px;
+  height: 100vh;
+  margin-top: 15px;
+  padding: 5px;
+  li {
+    padding: 5px 0;
+  }
+}
+
+.project-list:hover {
+  cursor: pointer;
+}

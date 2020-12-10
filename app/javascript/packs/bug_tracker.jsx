@@ -8,7 +8,8 @@ import Root from '../../../frontend/components/root'
 // window.login = login;
 // window.logout = logout
 
-import { fetchProjects, createProject, editProject } from '../../../frontend/actions/project_actions.js'
+import { fetchProjects, fetchProject, createProject, editProject } from '../../../frontend/actions/project_actions.js'
+window.fetchProject = fetchProject;
 window.fetchProjects = fetchProjects;
 window.createProject = createProject;
 window.editProject = editProject;

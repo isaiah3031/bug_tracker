@@ -8,16 +8,22 @@ class Greeting extends React.Component {
   render() {
     if (this.props.currentUser.username !== undefined){
       return (
-        <div>
+        <div className='greeting-container'>
+          <Link className='icon' to='/'>BugTracker</Link>
           <h1>Welcome {this.props.currentUser.username}</h1>
           <button onClick={() => this.props.logout()}>Logout</button>
         </div>
       )
     } else {
       return (
-        <div>
-          <Link to='/signup'>SignUp</Link>
-          <Link to='/login'>Login</Link>
+        <div className='greeting-container'>
+          <Link className='icon' to='/'>BugTracker</Link>
+          <Link to='/signup'>
+            <button>Sign up</button>
+          </Link>
+          <Link to='/login'>
+            <button>Login</button>
+          </Link>
         </div>
       )
     }

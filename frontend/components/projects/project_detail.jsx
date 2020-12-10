@@ -1,20 +1,30 @@
 import React from 'react'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
+import EditProjectFormContainer from './edit_project_form_container'
 
 class ProjectDetail extends React.Component {
   constructor(props) {
     super(props)
   }
-  
+
   componentWillMount() {
     let projectId = this.props.match.params.projectId
     this.props.fetchProject(projectId)
   }
-  
+
   render() {
-    let project = this.props.project
+    let currentProject = this.props.project
     return (
-      <h2>{project.name}</h2>
+      <div>
+        <button onClick={() => {
+          this.props.history.push(`/projects/${currentProject.id}/edit`)
+        }}>Edit Project</button>
+        <button onClick={() => {
+          this.props.history.push(`/projects/new`)
+        }}>New Project</button>
+
+        <h2>{currentProject.name}</h2>
+      </div>
     )
   }
 }

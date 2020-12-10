@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom'
 
 class ProjectList extends React.Component {
   constructor(props) {
@@ -9,14 +10,21 @@ class ProjectList extends React.Component {
     this.props.fetchProjects();
   }
 
+  showProject(projectId) {
+    this.props.history.push(`/projects/${projectId}`)
+  }
+
   render() {
     let projects = this.props.projects;
     return (
-      <ul id='projectList'>
-        {Object.values(projects).map(project => <li>{project.name}</li>)}
+      <ul className='project-list'>
+        {Object.values(projects).map(project => {
+          return <li key={project.id} onClick={() => this.showProject(project.id)}>{project.name}</li>
+        }
+      )}
       </ul>
     )
   }
 }
 
-export default ProjectList
+export default withRouter(ProjectList)
