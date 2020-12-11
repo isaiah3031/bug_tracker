@@ -7,3 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create(username: 'isaiah30', password: 'yellow')
+Project.create(name: 'this is number one')
+Story.create(title: 'rendering problems', description: 'something breaks when I do a thing', story_type: 'bug', iteration: 'current',complexity: -1,status: '' ,project_id: 1)
