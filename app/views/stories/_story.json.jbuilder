@@ -1,5 +1,5 @@
 json.id story.id
-json.titie story.title
+json.title story.title
 json.description story.description
 json.story_type story.story_type
 json.iteration story.iteration

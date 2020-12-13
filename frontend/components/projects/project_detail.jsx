@@ -1,6 +1,6 @@
 import React from 'react'
 import { withRouter, Link } from 'react-router-dom'
-import EditProjectFormContainer from './edit_project_form_container'
+import StoryListContainer from '../story/story_list_container'
 
 class ProjectDetail extends React.Component {
   constructor(props) {
@@ -24,6 +24,7 @@ class ProjectDetail extends React.Component {
         }}>New Project</button>
 
         <h2>{currentProject.name}</h2>
+        <StoryListContainer />
       </div>
     )
   }

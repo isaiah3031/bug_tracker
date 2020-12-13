@@ -16,7 +16,6 @@ const App = () => (
       <GreetingContainer/>
     </header>
     <Switch>
-      
       <Route path='/projects/:projectId/edit' component={EditProjectFormContainer} />
       <Route exact path='/projects/:projectId' component={ProjectDetailContainer} />
       <Route path='/projects/new' component={NewProjectFormContainer} />
