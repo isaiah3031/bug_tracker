@@ -9,3 +9,7 @@ export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS'
 // Project types
 export const RECEIVE_PROJECTS = 'RECEIVE_PROJECTS'
 export const RECEIVE_PROJECT = 'RECEIVE_PROJECT'
+
+// Story types
+export const RECEIVE_STORIES = 'RECEIVE_STORIES'
+export const RECEIVE_STORY = 'RECEIVE_STORY'

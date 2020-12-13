@@ -8,11 +8,11 @@ import Root from '../../../frontend/components/root'
 // window.login = login;
 // window.logout = logout
 
-import { fetchProjects, fetchProject, createProject, editProject } from '../../../frontend/actions/project_actions.js'
-window.fetchProject = fetchProject;
-window.fetchProjects = fetchProjects;
-window.createProject = createProject;
-window.editProject = editProject;
+import { fetchStory, fetchStories, createStory, editStory } from '../../../frontend/util/story_api_util.js'
+window.fetchStories = fetchStories;
+window.fetchStory = fetchStory;
+window.createStory = createStory;
+window.editStory = editStory;
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root')
