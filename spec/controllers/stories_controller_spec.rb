@@ -73,7 +73,7 @@ RSpec.describe 'Stories', type: :request do
         }
       }
       story_id = Story.last.id
-      get `/project/1/stories/#{story_id}/edit`, params: {
+      get "/project/1/stories/#{story_id}/edit", params: {
         story: {
           title: 'CHANGED', 
           description: 'this ones new', 
@@ -87,8 +87,8 @@ RSpec.describe 'Stories', type: :request do
       expect(response).to have_http_status(:success)
     end
 
-    it 'Creates a story' do
-      post `/project/1/stories`, params: {
+    it 'Edits a story story' do
+      post '/project/1/stories', params: {
         story: {
           title: Faker::Book.title, 
           description: 'this ones new', 
@@ -112,6 +112,7 @@ RSpec.describe 'Stories', type: :request do
         }
       }
       expect(Story.last.title).to eq('CHANGED')
+      expect(Story.last.id).to eq(story_id)
     end
   end
 end

@@ -28,12 +28,12 @@ class StoriesController < ApplicationController
   end
 
   def edit
-    @story = Story.find_by_id(:id)
-    @story.update(story_params)
-    if @story.save
+    @story = Story.find_by_id(params[:id])
+    if @story.update(story_params)
+      @story.save
       render 'show'
     else
-      render json: {error: 'Not all values were found.'}
+      render json: { error: 'Not all values were found.' }
     end
   end
 
