@@ -18,11 +18,11 @@ class StoryForm extends React.Component {
     this.state = {
       title: '',
       description: '',
-      story_type: '',
-      iteration: '',
-      complexity: '',
+      story_type: 'bug',
+      iteration: 'icebox',
+      complexity: '-1',
       status: '',
-      project_id: this.props.project_id
+      project_id: this.props.projectId
     }
   }
 
@@ -74,7 +74,7 @@ class StoryForm extends React.Component {
             id='story_type'
             value={this.state.story_type}
             onChange={() => this.handleChanges()}>
-            <option value='bug'>bug</option>    
+            <option value='bug' selected="selected">bug</option>    
             <option value='feature'>feature</option>
           </select>
         </label>
@@ -85,7 +85,7 @@ class StoryForm extends React.Component {
             onChange={() => this.handleChanges()}>
             <option value='current'>current</option>    
             <option value='backlog'>backlog</option>
-            <option value='icebox'>icebox</option>
+            <option  value='icebox' selected="selected">icebox</option>
           </select>
         </label>
         <label> Complexity:
@@ -93,7 +93,7 @@ class StoryForm extends React.Component {
             id='complexity'
             value={this.state.complexity}
             onChange={() => this.handleChanges()}>
-            <option value='-1'>unestimated</option>    
+            <option value='-1' selected="selected">unestimated</option>    
             <option value='1'>1</option>
             <option value='2'>2</option>
           </select>
@@ -103,7 +103,7 @@ class StoryForm extends React.Component {
             id='status'
             value={this.state.status}
             onChange={() => this.handleChanges()}>
-            <option value=''>not started</option>    
+            <option value='' selected="selected">not started</option>    
             <option value='in_progress'>In Progress</option>
             <option value='finished'>finished</option>
           </select>

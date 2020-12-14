@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom'
 import StoryDetail from './story_detail'
+import NewStoryFormContainer from './new_story_form_container'
 // Next I'm thinking Click a story to render a story detail component
 
 class StoryList extends React.Component {
@@ -41,6 +42,7 @@ class StoryList extends React.Component {
             <StoryDetail selectedStory={this.state.selectedStory} story={story} />
           </div>
         )}
+        <NewStoryFormContainer projectId={this.props.match.params.projectId}/>
       </div>
     )
   }
