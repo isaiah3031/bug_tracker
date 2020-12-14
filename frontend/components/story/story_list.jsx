@@ -34,10 +34,12 @@ class StoryList extends React.Component {
     return (
       <div>
         {Object.values(stories).map(story => 
-          <li key={story.id}
-            onClick={() => this.setSelectedStory(story.id)}>{story.title}
+          <div>
+            <li key={story.id}
+              onClick={() => this.setSelectedStory(story.id)}>{story.title}
+            </li>
             <StoryDetail selectedStory={this.state.selectedStory} story={story} />
-          </li>
+          </div>
         )}
       </div>
     )
