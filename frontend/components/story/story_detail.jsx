@@ -10,6 +10,7 @@ class StoryDetail extends React.Component {
         <p>Iteration: {this.props.story.iteration}</p>
         <p>Complexity: {this.props.story.complexity}</p>
         <p>Status: {this.props.story.status}</p>
+        <p>Priority: {this.props.story.priority}</p>
         <EditStoryFormContainer story={this.props.story}/>
       </div>
     )} else {

@@ -8,4 +8,67 @@
 
 User.create(username: 'isaiah30', password: 'yellow')
 Project.create(name: 'this is number one')
-Story.create(title: 'rendering problems', description: 'something breaks when I do a thing', story_type: 'bug', iteration: 'current',complexity: -1,status: '' ,project_id: 1)
+
+Story.create(
+  title: 'two',
+  description: 'two twotwotwo', 
+  story_type: 'bug', 
+  iteration: 'current',
+  complexity: -1,
+  status: '' ,
+  priority: 2,
+  project_id: 1
+)
+
+Story.create(
+  title: 'three',
+  description: 'three three three three ', 
+  story_type: 'bug', 
+  iteration: 'current',
+  complexity: -1,
+  status: '' ,
+  priority: 3,
+  project_id: 1
+)
+Story.create(
+  title: 'rendering problems',
+  description: 'something breaks when I do a thing', 
+  story_type: 'bug', 
+  iteration: 'current',
+  complexity: -1,
+  status: '' ,
+  priority: 1,
+  project_id: 1
+)
+
+Story.create(
+  title: 'rendering problemsb',
+  description: 'something breaks when I do a thing', 
+  story_type: 'bug', 
+  iteration: 'backlog',
+  complexity: -1,
+  status: '' ,
+  priority: 1,
+  project_id: 1
+)
+Story.create(
+  title: 'twob',
+  description: 'two twotwotwo', 
+  story_type: 'bug', 
+  iteration: 'backlog',
+  complexity: -1,
+  status: '' ,
+  priority: 2,
+  project_id: 1
+)
+
+Story.create(
+  title: 'twoi',
+  description: 'two twotwotwo', 
+  story_type: 'bug', 
+  iteration: 'icebox',
+  complexity: -1,
+  status: '' ,
+  priority: 1,
+  project_id: 1
+)

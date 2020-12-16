@@ -6,3 +6,4 @@ json.iteration story.iteration
 json.complexity story.complexity
 json.status story.status
 json.project_id story.project_id
+json.priority story.priority

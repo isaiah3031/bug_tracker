@@ -28,12 +28,13 @@ class StoryList extends React.Component {
     }
   }
 
-  // returns an array of stories sorted into three arrays: icebox, current, backlog
-  sortStories() {
+  // returns a hash of stories sorted into three arrays: icebox, current, backlog
+  sortStoriesByIteration(stories) {
     let icebox = [] 
     let current = []
     let backlog = []
-    Object.values(this.props.stories).map(story => {
+    debugger
+    stories.map(story => {
       if (story.iteration == 'icebox'){
           icebox.push(story)
       } else if (story.iteration == 'current') {
@@ -45,27 +46,31 @@ class StoryList extends React.Component {
     return {icebox: icebox, current: current, backlog: backlog}
   }
 
+  sortStoriesByPriority() {
+    return Object.values(this.props.stories).sort((storya, storyb) => 
+      parseFloat(storya.priority) - parseFloat(storyb.priority)
+    )
+  }
+
   render() {
     if (Object.values(this.props.stories).length == 0) {
       return <div></div>
     }
-    let sortedStories = this.sortStories()
+    let sortedStories = this.sortStoriesByIteration(this.sortStoriesByPriority())
     
     return (
       // Loops through stories of each iteration to expose a single story instance. 
-      // iterations => stories => story
+      // Array of Iterations => Iterations Array => story object
 
-      <div>
+      <div className='iterations'>
         {Object.keys(sortedStories).map(iteration => {
-          return <div>
+          return <div className='story-list'>
             <h2>{iteration}</h2>
             {sortedStories[iteration].map(story => {
-              return <div>
-                <li key={story.id}
-                  onClick={() => this.setSelectedStory(story.id)}>{story.title}
-                </li>
+              return <li key={story.id}>
+                <h3 onClick={() => this.setSelectedStory(story.id)}>{story.title}</h3>
                 <StoryDetail selectedStory={this.state.selectedStory} story={story} />
-              </div>
+              </li>
               }
             )}
             

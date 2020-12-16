@@ -3,7 +3,7 @@ class Story < ApplicationRecord
   validates :title, :description, :story_type, :iteration, presence: :true
   validates :story_type, inclusion: { in: %w(bug feature)}
   validates :iteration, inclusion: { in: %w(current backlog icebox)}
-  validates :complexity, inclusion: { in: [-1, 1, 2, 3]}
+  validates :complexity, :priority, inclusion: { in: [-1, 1, 2, 3]}
   validates :status, inclusion: { in: ['', 'in_progress', 'finished']}
 end
 

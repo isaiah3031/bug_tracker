@@ -47,6 +47,7 @@ class StoriesController < ApplicationController
       :iteration,
       :complexity,
       :status,
+      :priority,
       :project_id
     )
   end

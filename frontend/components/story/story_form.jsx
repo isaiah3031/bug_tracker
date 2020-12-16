@@ -22,6 +22,7 @@ class StoryForm extends React.Component {
       iteration: 'icebox',
       complexity: '-1',
       status: '',
+      priority: -1,
       project_id: this.props.projectId
     }
   }
@@ -36,6 +37,7 @@ class StoryForm extends React.Component {
       complexity: story.complexity,
       status: story.status,
       project_id: story.project_id,
+      priority: story.priority,
       id: story.id
     }
   }
@@ -106,6 +108,16 @@ class StoryForm extends React.Component {
             <option value='' selected="selected">not started</option>    
             <option value='in_progress'>In Progress</option>
             <option value='finished'>finished</option>
+          </select>
+        </label>
+        <label> Priority:
+          <select 
+            id='priority'
+            value={this.state.priority}
+            onChange={() => this.handleChanges()}>
+            <option value='1' selected="selected">1</option>    
+            <option value='2'>2</option>
+            <option value='3'>3</option>
           </select>
         </label>
         <button onClick={() => this.handleSubmit()}>Submit</button>
