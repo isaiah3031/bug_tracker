@@ -16,7 +16,8 @@ RSpec.describe 'Stories', type: :request do
         iteration: 'current',
         complexity: -1,
         status: '' ,
-        project_id: 1
+        project_id: 1,
+        priority: 1
       )
       get '/project/1/stories'
       json_response = JSON.parse(response.body)
@@ -35,7 +36,8 @@ RSpec.describe 'Stories', type: :request do
           iteration: 'current',
           complexity: -1,
           status: '' ,
-          project_id: 1
+          project_id: 1,
+          priority: 1
         }
       }
       expect(response).to have_http_status(:success)
@@ -51,6 +53,7 @@ RSpec.describe 'Stories', type: :request do
           iteration: 'current',
           complexity: -1,
           status: '',
+          priority: 1,
           project_id: 1
         }
       }
@@ -69,6 +72,7 @@ RSpec.describe 'Stories', type: :request do
           iteration: 'current',
           complexity: -1,
           status: '' ,
+          priority: 1,
           project_id: 1
         }
       }
@@ -81,6 +85,7 @@ RSpec.describe 'Stories', type: :request do
           iteration: 'current',
           complexity: -1,
           status: '' ,
+          priority: 1,
           project_id: 1
         }
       }
@@ -96,6 +101,7 @@ RSpec.describe 'Stories', type: :request do
           iteration: 'current',
           complexity: -1,
           status: '' ,
+          priority: 1,
           project_id: 1
         }
       }
@@ -108,6 +114,7 @@ RSpec.describe 'Stories', type: :request do
           iteration: 'current',
           complexity: -1,
           status: '' ,
+          priority: 1,
           project_id: 1
         }
       }
