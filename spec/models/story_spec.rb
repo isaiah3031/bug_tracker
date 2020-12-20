@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Story, type: :model do
   it { should belong_to(:project) }
+  it { should belong_to(:author) }
+  it { should belong_to(:assigned_users).optional }
   it { should validate_presence_of(:title) }
   it { should validate_presence_of(:description) }
   it { should validate_presence_of(:story_type) }

@@ -11,23 +11,25 @@ Project.create(name: 'this is number one')
 
 Story.create(
   title: 'two',
-  description: 'two twotwotwo', 
-  story_type: 'bug', 
+  description: 'two twotwotwo',
+  story_type: 'bug',
   iteration: 'current',
   complexity: -1,
-  status: '' ,
+  status: '',
   priority: 2,
+  author_id: 1,
   project_id: 1
 )
 
 Story.create(
   title: 'three',
-  description: 'three three three three ', 
-  story_type: 'bug', 
+  description: 'three three three three ',
+  story_type: 'bug',
   iteration: 'current',
   complexity: -1,
-  status: '' ,
+  status: '',
   priority: 3,
+  author_id: 1,
   project_id: 1
 )
 Story.create(
@@ -38,6 +40,7 @@ Story.create(
   complexity: -1,
   status: '' ,
   priority: 1,
+  author_id: 1,
   project_id: 1
 )
 
@@ -49,6 +52,7 @@ Story.create(
   complexity: -1,
   status: '' ,
   priority: 1,
+  author_id: 1,
   project_id: 1
 )
 Story.create(
@@ -59,6 +63,7 @@ Story.create(
   complexity: -1,
   status: '' ,
   priority: 2,
+  author_id: 1,
   project_id: 1
 )
 
@@ -70,5 +75,27 @@ Story.create(
   complexity: -1,
   status: '' ,
   priority: 1,
+  author_id: 1,
   project_id: 1
+)
+
+Comment.create(
+  text: 'this is just a test',
+  is_reject: false,
+  author_id: 1,
+  story_id: 1
+)
+
+Comment.create(
+  text: 'this is not just a test',
+  is_reject: false,
+  author_id: 1,
+  story_id: 1
+)
+
+Comment.create(
+  text: 'this is not not just a test',
+  is_reject: false,
+  author_id: 1,
+  story_id: 1
 )

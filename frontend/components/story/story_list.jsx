@@ -2,13 +2,13 @@ import React from 'react';
 import { withRouter } from 'react-router-dom'
 import StoryDetail from './story_detail'
 import NewStoryFormContainer from './new_story_form_container'
-// Next I'm thinking Click a story to render a story detail component
 
 class StoryList extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      selectedStory: -1
+      selectedStory: -1,
+      editForm: false
     }
   }
 
@@ -33,7 +33,7 @@ class StoryList extends React.Component {
     let icebox = [] 
     let current = []
     let backlog = []
-    debugger
+    
     stories.map(story => {
       if (story.iteration == 'icebox'){
           icebox.push(story)
@@ -51,6 +51,7 @@ class StoryList extends React.Component {
       parseFloat(storya.priority) - parseFloat(storyb.priority)
     )
   }
+
 
   render() {
     if (Object.values(this.props.stories).length == 0) {

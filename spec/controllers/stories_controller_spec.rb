@@ -17,6 +17,7 @@ RSpec.describe 'Stories', type: :request do
         complexity: -1,
         status: '' ,
         project_id: 1,
+        author_id: 1,
         priority: 1
       )
       get '/project/1/stories'
@@ -37,6 +38,7 @@ RSpec.describe 'Stories', type: :request do
           complexity: -1,
           status: '' ,
           project_id: 1,
+          author_id: 1,
           priority: 1
         }
       }
@@ -54,10 +56,10 @@ RSpec.describe 'Stories', type: :request do
           complexity: -1,
           status: '',
           priority: 1,
+          author_id: 1,
           project_id: 1
         }
       }
-      json_response = JSON.parse(response.body)
       expect(Story.last.title).to eq(title)
     end
   end
@@ -73,6 +75,7 @@ RSpec.describe 'Stories', type: :request do
           complexity: -1,
           status: '' ,
           priority: 1,
+          author_id: 1,
           project_id: 1
         }
       }
@@ -86,6 +89,7 @@ RSpec.describe 'Stories', type: :request do
           complexity: -1,
           status: '' ,
           priority: 1,
+          author_id: 1,
           project_id: 1
         }
       }
@@ -102,6 +106,7 @@ RSpec.describe 'Stories', type: :request do
           complexity: -1,
           status: '' ,
           priority: 1,
+          author_id: 1,
           project_id: 1
         }
       }
@@ -115,6 +120,7 @@ RSpec.describe 'Stories', type: :request do
           complexity: -1,
           status: '' ,
           priority: 1,
+          author_id: 1,
           project_id: 1
         }
       }

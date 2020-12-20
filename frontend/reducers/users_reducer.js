@@ -7,7 +7,7 @@ const UsersReducer = (state = {}, action) => {
     case types.LOGOUT_CURRENT_USER:
       return {}
     default: 
-      return {}
+      return state
   }
 }
 

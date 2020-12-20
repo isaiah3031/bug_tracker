@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_16_172619) do
+ActiveRecord::Schema.define(version: 2020_12_20_165320) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2020_12_16_172619) do
     t.integer "story_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "author_id"
+    t.index ["author_id"], name: "index_comments_on_author_id"
     t.index ["story_id"], name: "index_comments_on_story_id"
   end
 
@@ -41,6 +43,10 @@ ActiveRecord::Schema.define(version: 2020_12_16_172619) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "priority"
+    t.integer "author_id"
+    t.integer "assigned_to"
+    t.index ["assigned_to"], name: "index_stories_on_assigned_to"
+    t.index ["author_id"], name: "index_stories_on_author_id"
     t.index ["project_id"], name: "index_stories_on_project_id"
     t.index ["title"], name: "index_stories_on_title"
   end

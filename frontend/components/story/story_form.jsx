@@ -23,7 +23,8 @@ class StoryForm extends React.Component {
       complexity: '-1',
       status: '',
       priority: -1,
-      project_id: this.props.projectId
+      project_id: this.props.projectId,
+      author_id: this.props.currentUser
     }
   }
 
@@ -38,6 +39,7 @@ class StoryForm extends React.Component {
       status: story.status,
       project_id: story.project_id,
       priority: story.priority,
+      author: this.props.currentUser,
       id: story.id
     }
   }

@@ -4,6 +4,7 @@ import { editStory } from '../../actions/stories_actions'
 
 const mapStateToProps = (state, ownProps) => ({
   formType: 'edit',
+  currentUser: state.session.id,
   story: ownProps.story
 })
 

@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   root to: 'static_pages#root'
 
   resources :project, only: %i[create edit index show], defaults: { format: 'json' } do
-    resources :stories, only: %i[create edit index show], defaults: { format: 'json' }
+    resources :stories, only: %i[create edit index show], defaults: { format: 'json' } do
+      resources :comments, only: %i[create edit index show], defaults: { format: 'json'}
+    end
   end
   namespace :api, defaults: { format: 'json' } do
     resources :users, only: %i[create]

@@ -2,6 +2,9 @@ require 'rails_helper'
 require 'faker'
 
 RSpec.describe User, type: :model do
+  it { should have_many(:comments)}
+  it { should have_many(:assigned_stories) }
+  it { should have_many(:stories)}
   it { should validate_presence_of(:username) }
   it { should validate_presence_of(:session_token) }
   it { should validate_presence_of(:password_digest) }
