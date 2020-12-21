@@ -25,7 +25,6 @@ class StoryList extends React.Component {
     this.props.fetchStories(this.props.match.params.projectId)
   }
 
-
   // toggles the selected story and allows it to be set to none (-1)
   setSelectedStory(storyId) {
     if (this.state.selectedStory == -1) {
@@ -55,13 +54,24 @@ class StoryList extends React.Component {
     return {icebox: icebox, current: current, backlog: backlog}
   }
 
+  // returns an array of sorted arrays
   sortStoriesByPriority() {
     return Object.values(this.props.stories).sort((storya, storyb) => 
       parseFloat(storya.priority) - parseFloat(storyb.priority)
     )
   }
 
-
+  // returns start, finished or an empty string depending on string passed to it
+  returnAppropriateText(iteration) {
+    switch(iteration) {
+      case 'icebox':
+        return ''
+      case 'current':
+        return 'iteration'
+      case 'backlog':
+        return 'start'
+    }
+  }
   render() {
     if (Object.values(this.props.stories).length == 0) {
       return <div></div>
@@ -78,7 +88,6 @@ class StoryList extends React.Component {
         </button>
         <div className='iterations'>
           <div className={this.state.newForm ? 'popup-background' : 'hidden'}>
-
             <NewStoryFormContainer projectId={this.props.match.params.projectId}/>
           </div>
           {Object.keys(sortedStories).map(iteration => {
@@ -87,6 +96,7 @@ class StoryList extends React.Component {
               {sortedStories[iteration].map(story => {
                 return <li className='story-component' key={story.id}>
                   <h3 onClick={() => this.setSelectedStory(story.id)}>{story.title}</h3>
+                  <button>{this.returnAppropriateText(story.iteration)}</button>
                   <StoryDetail selectedStory={this.state.selectedStory} story={story} />
                 </li>
                 }
