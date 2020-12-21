@@ -1,13 +1,61 @@
-form {
+.story-form {
   display: flex;
   flex-direction: column;
+  width: 250px;
   justify-content: space-between;
-  label {
+  padding: 10px 2px;
+  border: solid thin;
+  box-sizing: border-box;
+  .input-label {
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 5px;
+  }
+  input {
+    padding: 2px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .select-label {
+    width: 100%;
     display: flex;
     justify-content: space-between;
+    border: solid thin;
+    box-sizing: border-box;
+    margin: 3px auto;
+    padding: 2px;
+    select {
+      border: none;
+      margin: 0px 0 0 auto;
+    }
   }
+
   button {
     width: 120px;
     margin: 5px auto;
   }
+}
+
+.popup-background {
+  z-index: 1000;
+  position: fixed;
+  top: 23vh;
+  left: 0px;
+  height: 80vh;
+  width: 100vw;
+  background-color: white;
+
+  form {
+    margin: 0 auto;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+button:hover {
+  cursor: pointer;
 }

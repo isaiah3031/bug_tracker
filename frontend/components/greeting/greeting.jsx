@@ -10,20 +10,24 @@ class Greeting extends React.Component {
       return (
         <div className='greeting-container'>
           <Link className='icon' to='/'>BugTracker</Link>
-          <h1>Welcome {this.props.currentUser.username}</h1>
+          <h1>Welcome {this.props.currentUser.username}
           <button onClick={() => this.props.logout()}>Logout</button>
+          </h1>
         </div>
       )
     } else {
       return (
         <div className='greeting-container'>
           <Link className='icon' to='/'>BugTracker</Link>
-          <Link to='/signup'>
-            <button>Sign up</button>
-          </Link>
-          <Link to='/login'>
-            <button>Login</button>
-          </Link>
+          <div>
+            <Link to='/signup'>
+              <button>Sign up</button>
+            </Link>
+            <Link to='/login'>
+              <button>Login</button>
+            </Link>
+          </div>
+
         </div>
       )
     }

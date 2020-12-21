@@ -58,22 +58,8 @@ class StoryForm extends React.Component {
 
   render() {
     return (
-      <form>
-        <label> Title:
-          <input 
-            id='title'
-            value={this.state.title}
-            onChange={() => this.handleChanges()}
-          />
-        </label>
-        <label> Description:
-          <input 
-            id='description'
-            value={this.state.description}
-            onChange={() => this.handleChanges()}
-          />
-        </label>
-        <label> Type:
+      <form className='story-form'>
+        <label className='select-label'> Type:
           <select 
             id='story_type'
             value={this.state.story_type}
@@ -82,7 +68,7 @@ class StoryForm extends React.Component {
             <option value='feature'>feature</option>
           </select>
         </label>
-        <label> Iteration:
+        <label className='select-label'> Iteration:
           <select 
             id='iteration'
             value={this.state.iteration}
@@ -92,7 +78,7 @@ class StoryForm extends React.Component {
             <option  value='icebox' selected="selected">icebox</option>
           </select>
         </label>
-        <label> Complexity:
+        <label className='select-label'> Complexity:
           <select 
             id='complexity'
             value={this.state.complexity}
@@ -102,7 +88,7 @@ class StoryForm extends React.Component {
             <option value='2'>2</option>
           </select>
         </label>
-        <label> Status:
+        <label className='select-label'> Status:
           <select 
             id='status'
             value={this.state.status}
@@ -112,7 +98,7 @@ class StoryForm extends React.Component {
             <option value='finished'>finished</option>
           </select>
         </label>
-        <label> Priority:
+        <label className='select-label'> Priority:
           <select 
             id='priority'
             value={this.state.priority}
@@ -122,6 +108,18 @@ class StoryForm extends React.Component {
             <option value='3'>3</option>
           </select>
         </label>
+        <label className='input-label'> Title:</label>
+        <input 
+          id='title'
+          value={this.state.title}
+          onChange={() => this.handleChanges()}
+        />
+        <label className='input-label'> Description:</label>
+        <input 
+          id='description'
+          value={this.state.description}
+          onChange={() => this.handleChanges()}
+        />
         <button onClick={() => this.handleSubmit()}>Submit</button>
       </form>
     )

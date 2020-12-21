@@ -1,11 +1,27 @@
+.project-name {
+  font-size: 30px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.iterations-container {
+  margin: 0 auto;
+  width: 58%;
+  button {
+    margin: 5px 0;
+  }
+}
 .iterations {
   h2 {
     font-size: 25px;
     margin-bottom: 15px;
+    text-transform: capitalize;
   }
   .story-list {
     h3 {
       font-weight: bold;
+      margin: none;
+      padding: none;
     }
     float: left;
     border-style: solid;
@@ -14,5 +30,25 @@
     width: 250px;
     height: 75vh;
     padding: 10px;
+  }
+  .inprogress {
+    background-color: hsla(60, 100%, 50%, 0.5);
+  }
+  .complete {
+    background-color: hsla(120, 100%, 50%, 0.5);
+  }
+  .unassigned {
+    background-color: hsla(240, 100%, 50%, 0.5);
+  }
+  .story-component {
+    padding: 15px 5px;
+    border-bottom: solid;
+    border-width: thin;
+  }
+  .story-component:hover {
+    cursor: pointer;
+  }
+  .story-component:last-child {
+    border: none;
   }
 }

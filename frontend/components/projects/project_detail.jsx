@@ -31,7 +31,7 @@ class ProjectDetail extends React.Component {
         <button onClick={() => this.renderForm('new')}>
           New Project
         </button>
-        <h2>{currentProject.name}</h2>
+        <h2 className='project-name'>{currentProject.name}</h2>
         <StoryListContainer />
       </div>
     )

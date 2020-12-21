@@ -8,8 +8,17 @@ class StoryList extends React.Component {
     super(props)
     this.state = {
       selectedStory: -1,
-      editForm: false
+      editForm: false,
+      newForm: false
     }
+  }
+
+  toggleNewForm() {
+    this.setState({
+      selectedStory: -1,
+      editForm: false,
+      newForm: !this.state.newForm
+    })
   }
 
   componentWillMount() {
@@ -63,21 +72,29 @@ class StoryList extends React.Component {
       // Loops through stories of each iteration to expose a single story instance. 
       // Array of Iterations => Iterations Array => story object
 
-      <div className='iterations'>
-        {Object.keys(sortedStories).map(iteration => {
-          return <div className='story-list'>
-            <h2>{iteration}</h2>
-            {sortedStories[iteration].map(story => {
-              return <li key={story.id}>
-                <h3 onClick={() => this.setSelectedStory(story.id)}>{story.title}</h3>
-                <StoryDetail selectedStory={this.state.selectedStory} story={story} />
-              </li>
-              }
-            )}
-            
+      <div className='iterations-container'>
+        <button onClick={() => this.toggleNewForm()}>
+          {this.state.newForm ? 'View Stories' : 'Create a new Story'}
+        </button>
+        <div className='iterations'>
+          <div className={this.state.newForm ? 'popup-background' : 'hidden'}>
+
+            <NewStoryFormContainer projectId={this.props.match.params.projectId}/>
           </div>
-      })}
-      <NewStoryFormContainer projectId={this.props.match.params.projectId}/>
+          {Object.keys(sortedStories).map(iteration => {
+            return <div className='story-list'>
+              <h2>{iteration}</h2>
+              {sortedStories[iteration].map(story => {
+                return <li className='story-component' key={story.id}>
+                  <h3 onClick={() => this.setSelectedStory(story.id)}>{story.title}</h3>
+                  <StoryDetail selectedStory={this.state.selectedStory} story={story} />
+                </li>
+                }
+              )}
+              
+            </div>
+        })}
+      </div>
     </div>
   )}
 }

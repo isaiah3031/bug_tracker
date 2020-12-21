@@ -14,6 +14,8 @@ class StoryDetail extends React.Component {
     this.setState((state) => ({editForm: !state.editForm}))
   }
 
+  // Maybe it would make more sense for this to eventually be a container.
+  // This would remove lines 35 to 42
   render() {
     if (this.props.selectedStory == this.props.story.id) {
       if (this.state.editForm) {
@@ -25,7 +27,6 @@ class StoryDetail extends React.Component {
             <EditStoryFormContainer story={this.props.story}/>
           </div>
         )
-        
       } else {
         return (
         <div>

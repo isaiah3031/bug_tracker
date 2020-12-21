@@ -1,8 +1,10 @@
 .greeting-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   .icon {
     font-size: 40px;
     color: black;
     text-decoration: none;
-    padding-right: 100vw;
   }
 }
