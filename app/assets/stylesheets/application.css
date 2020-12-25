@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+@import "color-scheme";
+h1,
+h2,
+h3,
+p,
+li,
+ul,
+div {
+  font-family: "Roboto", sans-serif;
+}

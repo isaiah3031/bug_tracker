@@ -1,3 +1,9 @@
+$darker-gray: #2f3337;
+$dark-grey: #505356;
+$grey: #787d85;
+$blue: #407aa5;
+$off-white: #f4f4f4;
+
 .project-name {
   font-size: 30px;
   text-align: center;
@@ -13,15 +19,18 @@
 }
 .iterations {
   h2 {
-    font-size: 25px;
-    margin-bottom: 15px;
+    font-size: 20px;
+    padding: 10px;
     text-transform: capitalize;
+    background-color: $dark-grey;
+    color: $off-white;
   }
   .story-list {
     h3 {
       font-weight: bold;
       margin: none;
       padding: none;
+      background-color: $off-white;
     }
     float: left;
     border-style: solid;
@@ -29,17 +38,8 @@
     border-width: thin;
     width: 250px;
     height: 75vh;
-    padding: 10px;
   }
-  .inprogress {
-    background-color: hsla(60, 100%, 50%, 0.5);
-  }
-  .complete {
-    background-color: hsla(120, 100%, 50%, 0.5);
-  }
-  .unassigned {
-    background-color: hsla(240, 100%, 50%, 0.5);
-  }
+
   .story-component {
     padding: 15px 5px;
     border-bottom: solid;

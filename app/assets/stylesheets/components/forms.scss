@@ -1,11 +1,9 @@
 .story-form {
   display: flex;
   flex-direction: column;
-  width: 250px;
+  width: 100%;
   justify-content: space-between;
   padding: 10px 2px;
-  border: solid thin;
-  box-sizing: border-box;
   .input-label {
     font-size: 14px;
     font-weight: bold;
@@ -48,9 +46,9 @@
   background-color: white;
   display: flex;
   justify-content: space-around;
-  // form {
-  //   margin: 0 auto;
-  // }
+  form {
+    margin: 0 auto;
+  }
 }
 
 .hidden {

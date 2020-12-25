@@ -17,35 +17,47 @@ class StoryDetail extends React.Component {
   // Maybe it would make more sense for this to eventually be a container.
   // This would remove lines 35 to 42
   render() {
-    if (this.props.selectedStory == this.props.story.id) {
+    const {
+      selectedStory, 
+      story,
+      story: { 
+        id, 
+        description,
+        story_type,
+        iteration,
+        complexity,
+        status,
+        priority,
+        assigned_to
+      }} = this.props
+    if (selectedStory == id) {
       if (this.state.editForm) {
         return (
-          <div>
+          <>
             <button onClick={() => this.toggleForm()}>
-              {this.state.editForm ? 'View Details' : 'Edit'}
+              {this.state.editForm ? 'Back' : 'Edit'}
             </button>
-            <EditStoryFormContainer story={this.props.story}/>
-          </div>
+            <EditStoryFormContainer story={story}/>
+          </>
         )
       } else {
         return (
-        <div>
-          <button onClick={() => this.toggleForm()}>
-            {this.state.editForm ? 'ViewDetails' : 'Edit'}
-          </button>
-          <p>Description: {this.props.story.description}</p>
-          <p>Type: {this.props.story.story_type}</p>
-          <p>Iteration: {this.props.story.iteration}</p>
-          <p>Complexity: {this.props.story.complexity}</p>
-          <p>Status: {this.props.story.status}</p>
-          <p>Priority: {this.props.story.priority}</p>
-          <CommentListContainer storyId={this.props.story.id} />
-        </div>
+          <>
+            <button onClick={() => this.toggleForm()}>
+              {this.state.editForm ? 'Back' : 'Edit'}
+            </button>
+            <p>Description: {description}</p>
+            <p>Type: {story_type}</p>
+            <p>Iteration: {iteration}</p>
+            <p>Complexity: {complexity}</p>
+            <p>Status: {status}</p>
+            <p>Priority: {priority}</p>
+            <p>Assigned To: {assigned_to}</p>
+            <CommentListContainer storyId={id} />
+          </>
         )}
       } else {
-      return (
-        <div></div>
-      )
+      return null
     }
   }
 }

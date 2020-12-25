@@ -1,24 +1,15 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom'
 import StoryDetail from './story_detail'
-import NewStoryFormContainer from './new_story_form_container'
+import QuickFormContainer from './quick_form_container'
+import ToggleNewForm from './toggle_new_form'
 
 class StoryList extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       selectedStory: -1,
-      editForm: false,
-      newForm: false
     }
-  }
-
-  toggleNewForm() {
-    this.setState({
-      selectedStory: -1,
-      editForm: false,
-      newForm: !this.state.newForm
-    })
   }
 
   componentWillMount() {
@@ -74,7 +65,7 @@ class StoryList extends React.Component {
   }
   render() {
     if (Object.values(this.props.stories).length == 0) {
-      return <div></div>
+      return null
     }
     let sortedStories = this.sortStoriesByIteration(this.sortStoriesByPriority())
     
@@ -83,25 +74,19 @@ class StoryList extends React.Component {
       // Array of Iterations => Iterations Array => story object
 
       <div className='iterations-container'>
-        <button onClick={() => this.toggleNewForm()}>
-          {this.state.newForm ? 'View Stories' : 'Create a new Story'}
-        </button>
+        <ToggleNewForm projectId={this.props.match.params.projectId}/>
         <div className='iterations'>
-          <div className={this.state.newForm ? 'popup-background' : 'hidden'}>
-            <NewStoryFormContainer projectId={this.props.match.params.projectId}/>
-          </div>
           {Object.keys(sortedStories).map(iteration => {
             return <div className='story-list'>
               <h2>{iteration}</h2>
               {sortedStories[iteration].map(story => {
                 return <li className='story-component' key={story.id}>
-                  <h3 onClick={() => this.setSelectedStory(story.id)}>{story.title}</h3>
-                  <button>{this.returnAppropriateText(story.iteration)}</button>
+                  <p onClick={() => this.setSelectedStory(story.id)}>{story.description}</p>
+                  <QuickFormContainer story={story}/>
                   <StoryDetail selectedStory={this.state.selectedStory} story={story} />
                 </li>
                 }
               )}
-              
             </div>
         })}
       </div>

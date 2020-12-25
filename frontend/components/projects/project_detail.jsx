@@ -1,41 +1,35 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { withRouter, Link } from 'react-router-dom'
 import StoryListContainer from '../story/story_list_container'
 
-class ProjectDetail extends React.Component {
-  constructor(props) {
-    super(props)
-  }
+const ProjectDetail = (props) => {
+  useEffect(() => {
+    let projectId = props.match.params.projectId
+    props.fetchProject(projectId)
+  }, [])
 
-  componentWillMount() {
-    let projectId = this.props.match.params.projectId
-    this.props.fetchProject(projectId)
-  }
-
-  renderForm(formType){
+  const renderForm = (formType) => {
     switch (formType){
       case 'edit':
-        this.props.history.push(`/projects/${currentProject.id}/edit`)
+        props.history.push(`/projects/${currentProject.id}/edit`)
       case 'new':
-        this.props.history.push(`/projects/new`)
+        props.history.push(`/projects/new`)
     }
   }
 
-  render() {
-    let currentProject = this.props.project
+    let currentProject = props.project
     return (
       <div>
-        <button onClick={() => this.renderForm('edit')}>
+        <button onClick={() => renderForm('edit')}>
           Edit Project
         </button>
-        <button onClick={() => this.renderForm('new')}>
+        <button onClick={() => renderForm('new')}>
           New Project
         </button>
         <h2 className='project-name'>{currentProject.name}</h2>
         <StoryListContainer />
       </div>
     )
-  }
 }
 
 export default withRouter(ProjectDetail)
