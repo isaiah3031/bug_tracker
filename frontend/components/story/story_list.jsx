@@ -73,8 +73,7 @@ class StoryList extends React.Component {
       // Loops through stories of each iteration to expose a single story instance. 
       // Array of Iterations => Iterations Array => story object
 
-      <div className='iterations-container'>
-        <ToggleNewForm projectId={this.props.match.params.projectId}/>
+      <>
         <div className='iterations'>
           {Object.keys(sortedStories).map(iteration => {
             return <div className='story-list'>
@@ -90,7 +89,7 @@ class StoryList extends React.Component {
             </div>
         })}
       </div>
-    </div>
+    </>
   )}
 }
 

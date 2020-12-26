@@ -14,17 +14,18 @@ class ToggleNewForm extends React.Component {
       newForm: !this.state.newForm
     })
   }
+  
   render() {
     const { projectId } = this.props
     return (
-      <div>
+      <>
         <button onClick={() => this.toggleNewForm()}>
-          {this.state.newForm ? 'X' : ''}
+          {this.state.newForm ? 'View Details' : 'New Story'}
         </button>
         <div className={this.state.newForm ? 'popup-background' : 'hidden'}>
           <NewStoryFormContainer projectId={projectId}/>
         </div>
-      </div>
+      </>
     )
   }
 }

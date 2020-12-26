@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { withRouter, Link } from 'react-router-dom'
 import StoryListContainer from '../story/story_list_container'
+import ToggleNewForm from '../story/toggle_new_form'
 
 const ProjectDetail = (props) => {
   useEffect(() => {
@@ -18,6 +19,7 @@ const ProjectDetail = (props) => {
   }
 
     let currentProject = props.project
+    
     return (
       <div>
         <button onClick={() => renderForm('edit')}>
@@ -26,7 +28,10 @@ const ProjectDetail = (props) => {
         <button onClick={() => renderForm('new')}>
           New Project
         </button>
-        <h2 className='project-name'>{currentProject.name}</h2>
+        <h2 className='project-name'>
+          {currentProject.name}
+          <ToggleNewForm projectId={props.match.params.projectId}/>
+        </h2>
         <StoryListContainer />
       </div>
     )

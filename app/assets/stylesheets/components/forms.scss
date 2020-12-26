@@ -37,9 +37,9 @@
 }
 
 .popup-background {
-  z-index: 1000;
+  z-index: 10;
   position: fixed;
-  top: 23vh;
+  top: 120px;
   left: 0px;
   height: 80vh;
   width: 100vw;
@@ -47,6 +47,7 @@
   display: flex;
   justify-content: space-around;
   form {
+    width: 33%;
     margin: 0 auto;
   }
 }
