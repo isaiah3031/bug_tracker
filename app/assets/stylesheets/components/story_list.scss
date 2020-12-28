@@ -21,6 +21,7 @@ $off-white: #f4f4f4;
     color: $off-white;
   }
   .story-list {
+    overflow-y: auto;
     h3 {
       font-weight: bold;
       background-color: $off-white;

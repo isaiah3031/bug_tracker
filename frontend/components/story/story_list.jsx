@@ -55,20 +55,20 @@ class StoryList extends React.Component {
   // returns start, finished or an empty string depending on string passed to it
   returnAppropriateText(iteration) {
     switch(iteration) {
-      case 'icebox':
-        return ''
       case 'current':
         return 'iteration'
       case 'backlog':
         return 'start'
+      default:
+        return ''
     }
   }
   render() {
-    if (Object.values(this.props.stories).length == 0) {
+    if (Object.values(this.props.stories).length == 0 ||
+        this.props.stories.id) {
       return null
     }
     let sortedStories = this.sortStoriesByIteration(this.sortStoriesByPriority())
-    
     return (
       // Loops through stories of each iteration to expose a single story instance. 
       // Array of Iterations => Iterations Array => story object
@@ -76,8 +76,10 @@ class StoryList extends React.Component {
       <>
         <div className='iterations'>
           {Object.keys(sortedStories).map(iteration => {
-            return <div className='story-list'>
+            
+            return <div>
               <h2>{iteration}</h2>
+              <div className='story-list'>
               {sortedStories[iteration].map(story => {
                 return <li className='story-component' key={story.id}>
                   <p onClick={() => this.setSelectedStory(story.id)}>{story.description}</p>
@@ -86,6 +88,7 @@ class StoryList extends React.Component {
                 </li>
                 }
               )}
+            </div>
             </div>
         })}
       </div>

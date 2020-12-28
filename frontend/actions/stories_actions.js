@@ -23,7 +23,7 @@ export const fetchStory = (projectId, storyId) => dispatch =>
 
 export const createStory = (projectId, story) => dispatch =>
   StoryAPI.createStory(projectId, story).then(story => 
-    dispatch(receiveStory(story))
+      dispatch(receiveStory(story))
   )
 
 export const editStory = (projectId, storyId, story) => dispatch => 
