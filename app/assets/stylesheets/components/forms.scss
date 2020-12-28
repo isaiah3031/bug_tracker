@@ -16,6 +16,11 @@
     box-sizing: border-box;
   }
 
+  #description {
+    padding: 5px 0;
+    height: 80px;
+  }
+
   .select-label {
     width: 100%;
     display: flex;
@@ -41,14 +46,14 @@
   position: fixed;
   top: 120px;
   left: 0px;
-  height: 80vh;
+  height: 90vh;
   width: 100vw;
   background-color: white;
   display: flex;
   justify-content: space-around;
-  form {
-    width: 33%;
-    margin: 0 auto;
+  .popup-container {
+    width: 300px;
+    font-size: 20px;
   }
 }
 

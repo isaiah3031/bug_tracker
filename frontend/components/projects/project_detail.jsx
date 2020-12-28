@@ -28,10 +28,11 @@ const ProjectDetail = (props) => {
         <button onClick={() => renderForm('new')}>
           New Project
         </button>
-        <h2 className='project-name'>
-          {currentProject.name}
-          <ToggleNewForm projectId={props.match.params.projectId}/>
-        </h2>
+        <div className='project-name'>
+          <h2>{currentProject.name}
+            <ToggleNewForm projectId={props.match.params.projectId}/>
+          </h2>
+        </div>
         <StoryListContainer />
       </div>
     )

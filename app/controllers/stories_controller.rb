@@ -41,12 +41,10 @@ class StoriesController < ApplicationController
 
   def story_params
     params.require(:story).permit(
-      :title,
       :description,
       :story_type,
       :iteration,
       :complexity,
-      :status,
       :priority,
       :project_id,
       :author_id,

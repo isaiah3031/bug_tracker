@@ -16,12 +16,10 @@ class StoryForm extends React.Component {
 
   emptyState() {
     this.state = {
-      title: '',
       description: '',
       story_type: 'bug',
       iteration: 'icebox',
       complexity: '-1',
-      status: '',
       priority: -1,
       project_id: this.props.projectId,
       author_id: this.props.currentUser
@@ -31,12 +29,10 @@ class StoryForm extends React.Component {
   inheritState() {
     let story = this.props.story
     this.state = {
-      title: story.title,
       description: story.description,
       story_type: story.story_type,
       iteration: story.iteration,
       complexity: story.complexity,
-      status: story.status,
       project_id: story.project_id,
       priority: story.priority,
       author: this.props.currentUser,
@@ -88,16 +84,6 @@ class StoryForm extends React.Component {
             <option value='2'>2</option>
           </select>
         </label>
-        <label className='select-label'> Status:
-          <select 
-            id='status'
-            value={this.state.status}
-            onChange={() => this.handleChanges()}>
-            <option value='' selected="selected">not started</option>    
-            <option value='in_progress'>In Progress</option>
-            <option value='finished'>finished</option>
-          </select>
-        </label>
         <label className='select-label'> Priority:
           <select 
             id='priority'
@@ -108,18 +94,12 @@ class StoryForm extends React.Component {
             <option value='3'>3</option>
           </select>
         </label>
-        <label className='input-label'> Title:</label>
-        <input 
-          id='title'
-          value={this.state.title}
-          onChange={() => this.handleChanges()}
-        />
         <label className='input-label'> Description:</label>
-        <input 
+        <textarea
           id='description'
           value={this.state.description}
-          onChange={() => this.handleChanges()}
-        />
+          onChange={() => this.handleChanges()}>
+        </textarea> 
         <button onClick={() => this.handleSubmit()}>Submit</button>
       </form>
     )

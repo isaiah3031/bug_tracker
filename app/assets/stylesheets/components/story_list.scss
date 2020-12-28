@@ -6,8 +6,17 @@ $off-white: #f4f4f4;
 
 .project-name {
   font-size: 30px;
-  text-align: center;
-  margin: 20px 0;
+  margin: 5px 0;
+  h2 {
+    margin: 0 auto;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    button {
+      width: fit-content;
+      margin: 8px auto;
+    }
+  }
 }
 
 .iterations {

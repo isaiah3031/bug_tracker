@@ -23,7 +23,9 @@ class ToggleNewForm extends React.Component {
           {this.state.newForm ? 'View Details' : 'New Story'}
         </button>
         <div className={this.state.newForm ? 'popup-background' : 'hidden'}>
-          <NewStoryFormContainer projectId={projectId}/>
+          <div className='popup-container'>
+            <NewStoryFormContainer projectId={projectId}/>
+          </div>
         </div>
       </>
     )

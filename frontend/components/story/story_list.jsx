@@ -44,7 +44,7 @@ class StoryList extends React.Component {
           finished.push(story)
       }
     })
-    return {icebox: icebox, current: current, backlog: backlog, finished: finished}
+    return {icebox: icebox, backlog: backlog, current: current, finished: finished}
   }
 
   // returns an array of sorted arrays
@@ -84,7 +84,9 @@ class StoryList extends React.Component {
               <div className='story-list'>
               {sortedStories[iteration].map(story => {
                 return <li className='story-component' key={story.id}>
-                  <p onClick={() => this.setSelectedStory(story.id)}>{story.description}</p>
+                  <p onClick={() => this.setSelectedStory(story.id)}>
+                    {this.state.selectedStory == story.id ? story.description : `${story.description.substr(0, 60)}...`}
+                  </p>
                   <QuickFormContainer story={story}/>
                   <StoryDetail selectedStory={this.state.selectedStory} story={story} />
                 </li>
