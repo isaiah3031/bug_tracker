@@ -32,7 +32,7 @@ class StoryList extends React.Component {
     let icebox = [] 
     let current = []
     let backlog = []
-    
+    let finished = []
     stories.map(story => {
       if (story.iteration == 'icebox'){
           icebox.push(story)
@@ -40,9 +40,11 @@ class StoryList extends React.Component {
           current.push(story)
       } else if (story.iteration == 'backlog') {
           backlog.push(story)
+      } else if (story.iteration == 'finished') {
+          finished.push(story)
       }
     })
-    return {icebox: icebox, current: current, backlog: backlog}
+    return {icebox: icebox, current: current, backlog: backlog, finished: finished}
   }
 
   // returns an array of sorted arrays

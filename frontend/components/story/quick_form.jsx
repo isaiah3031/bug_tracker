@@ -1,39 +1,36 @@
 import React from 'react'
 
-// Should also assign projects to users when starting a project.
+// Creates buttons for stories in the current or backlog iterations quickly change
+// their iterations from backlog to current, or current to finished.
 class QuickForm extends React.Component {
   constructor(props) {
     super(props)
   }
 
   autofillCurrentForm() {
-    let story = this.props.story
+    const {story: {description, story_type, complexity, project_id, priority, id } } = this.props
     return ({
-      title: story.title,
-      description: story.description,
-      story_type: story.story_type,
+      description: description,
+      story_type: story_type,
       iteration: 'current',
-      complexity: story.complexity,
-      status: story.status,
-      project_id: story.project_id,
-      priority: story.priority,
+      complexity: complexity,
+      project_id: project_id,
+      priority: priority,
       assigned_to: this.props.currentUser.id,
-      id: story.id
+      id: id
     })
   }
 
   autofillFinishForm() {
-    let story = this.props.story
+    const {story: {description, story_type, complexity, project_id, priority, id } } = this.props
     return ({
-      title: story.title,
-      description: story.description,
-      story_type: story.story_type,
-      iteration: 'icebox',
-      complexity: story.complexity,
-      status: story.status,
-      project_id: story.project_id,
-      priority: story.priority,
-      id: story.id
+      description: description,
+      story_type: story_type,
+      iteration: 'finished',
+      complexity: complexity,
+      project_id: project_id,
+      priority: priority,
+      id: id
     })
   }
 
@@ -48,14 +45,16 @@ class QuickForm extends React.Component {
   }
 
   handleText() {
-    if (this.props.story.iteration == 'backlog') {
+    let story = this.props.story
+    if (story.iteration == 'backlog') {
       return 'Start'
-    } else {
+    } else if (story.iteration == 'current') {
       return 'Finish'
     }
   }
+  
   render() {
-    if (this.props.story.iteration == 'icebox') {
+    if (this.props.story.iteration == 'icebox' || this.props.story.iteration == 'finished') {
       return null
     } else {
       return <button onClick={() => this.handleSubmit()}>{this.handleText()}</button>
