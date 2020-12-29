@@ -5,6 +5,25 @@ class Story < ApplicationRecord
   validates :description, :story_type, :iteration, presence: :true
   validates :story_type, inclusion: { in: %w(bug feature)}
   validates :iteration, inclusion: { in: %w(current backlog icebox finished)}
-  validates :complexity, :priority, inclusion: { in: [-1, 1, 2, 3]}
+  validates :complexity, inclusion: { in: [-1, 1, 2, 3]}
+  before_validation :ensure_priority
+
+  def ensure_priority
+    self.priority || self.priority = countByProjectAndIteration + 1
+  end
+
+  def countByProjectAndIteration
+    Story
+      .where(iteration: self.iteration)
+      .where(project_id: self.project_id)
+      .count
+  end
 end
 
+s = Story.new
+s.description = 'adadfsaf'
+s.story_type = 'bug'
+s.iteration = 'feature'
+s.complexity = 1
+s.project_id = 1
+s.author_id = 1

@@ -14,7 +14,6 @@ Story.create(
   story_type: 'bug',
   iteration: 'current',
   complexity: -1,
-  priority: 2,
   author_id: 1,
   project_id: 1
 )
@@ -26,7 +25,6 @@ Story.create(
   story_type: 'bug',
   iteration: 'finished',
   complexity: -1,
-  priority: 2,
   author_id: 1,
   project_id: 2
 )
@@ -36,7 +34,6 @@ Story.create(
   story_type: 'feature',
   iteration: 'finished',
   complexity: -1,
-  priority: 2,
   author_id: 1,
   project_id: 2
 )
@@ -46,7 +43,6 @@ Story.create(
   story_type: 'feature',
   iteration: 'current',
   complexity: -1,
-  priority: 2,
   author_id: 1,
   project_id: 2
 )
@@ -56,7 +52,6 @@ Story.create(
   story_type: 'feature',
   iteration: 'backlog',
   complexity: -1,
-  priority: 2,
   author_id: 1,
   project_id: 2
 )
@@ -66,7 +61,6 @@ Story.create(
   story_type: 'feature',
   iteration: 'backlog',
   complexity: -1,
-  priority: 2,
   author_id: 1,
   project_id: 2
 )
@@ -76,7 +70,6 @@ Story.create(
   story_type: 'feature',
   iteration: 'backlog',
   complexity: -1,
-  priority: 2,
   author_id: 1,
   project_id: 2
 )
@@ -86,7 +79,6 @@ Story.create(
   story_type: 'feature',
   iteration: 'backlog',
   complexity: -1,
-  priority: 2,
   author_id: 1,
   project_id: 2
 )
@@ -96,7 +88,15 @@ Story.create(
   story_type: 'feature',
   iteration: 'backlog',
   complexity: -1,
-  priority: 2,
+  author_id: 1,
+  project_id: 2
+)
+
+ Story.create(
+  description: 'Users should be able to leave comments on stories.',
+  story_type: 'feature',
+  iteration: 'backlog',
+  complexity: -1,
   author_id: 1,
   project_id: 2
 )

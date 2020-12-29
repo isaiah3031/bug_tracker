@@ -84,16 +84,6 @@ class StoryForm extends React.Component {
             <option value='2'>2</option>
           </select>
         </label>
-        <label className='select-label'> Priority:
-          <select 
-            id='priority'
-            value={this.state.priority}
-            onChange={() => this.handleChanges()}>
-            <option value='1' selected="selected">1</option>    
-            <option value='2'>2</option>
-            <option value='3'>3</option>
-          </select>
-        </label>
         <label className='input-label'> Description:</label>
         <textarea
           id='description'
