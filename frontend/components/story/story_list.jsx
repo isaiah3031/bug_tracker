@@ -2,8 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom'
 import StoryDetail from './story_detail'
 import QuickFormContainer from './quick_form_container'
-import ToggleNewForm from './toggle_new_form'
-import LoadingIcon from '../loading_icon'
+
 class StoryList extends React.Component {
   constructor(props) {
     super(props)
@@ -72,7 +71,6 @@ class StoryList extends React.Component {
     }
     let sortedStories = this.sortStoriesByIteration(this.sortStoriesByPriority())
 
-    if (this.props.loading) { return <LoadingIcon />; }
     return (
       // Loops through stories of each iteration to expose a single story instance. 
       // Array of Iterations => Iterations Array => story object
@@ -95,7 +93,7 @@ class StoryList extends React.Component {
                 }
               )}
             </div>
-            </div>
+          </div>
         })}
       </div>
     </>
