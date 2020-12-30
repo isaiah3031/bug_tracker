@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { withRouter } from 'react-router-dom'
 import ToggleNewForm from '../story/toggle_new_form'
+import LoadingIcon from '../loading_icon'
+
 const ProjectList = (props) => {
   useEffect(() => {
     props.fetchProjects();
@@ -11,6 +13,9 @@ const ProjectList = (props) => {
   }
 
   const { projects } = props
+  
+  if (props.loading) { return <LoadingIcon />; }
+
   return (
     <ul className='project-list'>
       {Object.values(projects).map(project => {

@@ -11,22 +11,34 @@ export const receiveProject = (project) => ({
   project
 })
 
-export const fetchProjects = () => dispatch =>
+export const startLoading = () => ({
+  type: types.START_LOADING
+})
+
+export const fetchProjects = () => dispatch =>{
+  dispatch(startLoading())
   ProjectAPI.fetchProjects().then(projects =>
     dispatch(receiveProjects(projects))
   )
+}
 
-export const fetchProject = (projectId) => dispatch =>
+export const fetchProject = (projectId) => dispatch =>{
+  dispatch(startLoading())
   ProjectAPI.fetchProject(projectId).then(project =>
     dispatch(receiveProject(project))
   )
+}
 
-export const createProject = (project) => dispatch =>
+export const createProject = (project) => dispatch => {
+  dispatch(startLoading())
   ProjectAPI.createProject(project).then(project =>
     dispatch(receiveProject(project))  
   )
+}
 
-export const editProject = (project, projectId) => dispatch =>
+export const editProject = (project, projectId) => dispatch => {
+  dispatch(startLoading())
   ProjectAPI.editProject(project, projectId).then(project =>
     dispatch(receiveProject(project))
   )
+}

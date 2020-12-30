@@ -9,21 +9,36 @@ class Story < ApplicationRecord
   before_validation :ensure_priority
 
   def ensure_priority
-    self.priority || self.priority = countByProjectAndIteration + 1
+    self.priority || self.priority = count_by_project_and_iteration + 1
   end
 
-  def countByProjectAndIteration
+  def self.update_priorities(story, priority)
+    match = story.matching_project_and_iteration
+                .find_by(priority: priority)
+
+    if match
+      priority = priority.to_i + 1
+      Story.update_priorities(match, priority)
+      match.update(priority: priority)
+      match.save
+    end
+  end
+
+  def matching_project_and_iteration
     Story
       .where(iteration: self.iteration)
       .where(project_id: self.project_id)
-      .count
+  end
+
+  def count_by_project_and_iteration
+    self.matching_project_and_iteration.count
   end
 end
 
-s = Story.new
-s.description = 'adadfsaf'
-s.story_type = 'bug'
-s.iteration = 'feature'
-s.complexity = 1
-s.project_id = 1
-s.author_id = 1
+# s = Story.new
+# s.description = 'adadfsaf'
+# s.story_type = 'bug'
+# s.iteration = 'feature'
+# s.complexity = 1
+# s.project_id = 1
+# s.author_id = 1

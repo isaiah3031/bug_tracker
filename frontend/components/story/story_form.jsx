@@ -35,7 +35,7 @@ class StoryForm extends React.Component {
       complexity: story.complexity,
       project_id: story.project_id,
       priority: story.priority,
-      author: this.props.currentUser,
+      author_id: this.props.currentUser,
       id: story.id
     }
   }
@@ -90,6 +90,13 @@ class StoryForm extends React.Component {
           value={this.state.description}
           onChange={() => this.handleChanges()}>
         </textarea> 
+        <label className='select-label'> Priority:
+          <input 
+            type='text'
+            id='priority'
+            value={this.state.priority}
+            onChange={() => this.handleChanges()}/>
+        </label>
         <button onClick={() => this.handleSubmit()}>Submit</button>
       </form>
     )

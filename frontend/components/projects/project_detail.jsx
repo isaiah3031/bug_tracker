@@ -19,7 +19,6 @@ const ProjectDetail = (props) => {
   }
 
     let currentProject = props.project
-    
     return (
       <div>
         <button onClick={() => renderForm('edit')}>

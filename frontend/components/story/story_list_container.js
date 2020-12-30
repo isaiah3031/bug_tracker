@@ -3,7 +3,8 @@ import { fetchStories } from '../../actions/stories_actions'
 import StoryList from './story_list'
 
 const mapStateToProps = (state) => ({
-  stories: state.entities.stories
+  stories: state.entities.stories,
+  loading: state.ui.loading
 })
 
 const mapDispatchToProps = dispatch => ({

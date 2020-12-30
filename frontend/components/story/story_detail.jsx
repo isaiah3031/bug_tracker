@@ -1,6 +1,7 @@
 import React from 'react'
 import EditStoryFormContainer from './edit_story_form_container'
 import CommentListContainer from '../comments/comment_list_container'
+import CommentFormContainer from '../comments/comment_form_container'
 
 class StoryDetail extends React.Component {
   constructor(props) {
@@ -46,12 +47,14 @@ class StoryDetail extends React.Component {
             <button onClick={() => this.toggleForm()}>
               {this.state.editForm ? 'Back' : 'Edit'}
             </button>
+            <p>Description: {description}</p>
             <p>Type: {story_type}</p>
             <p>Iteration: {iteration}</p>
             <p>Complexity: {complexity}</p>
             <p>Status: {status}</p>
             <p>Priority: {priority}</p>
             <p>Assigned To: {assigned_to}</p>
+            <CommentFormContainer story={story} />
             <CommentListContainer storyId={id} />
           </>
         )}

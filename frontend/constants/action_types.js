@@ -17,3 +17,6 @@ export const RECEIVE_STORY = 'RECEIVE_STORY'
 // Comment types
 export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS'
 export const RECEIVE_COMMENT = 'RECEIVE_COMMENT'
+
+// Loading types
+export const START_LOADING = 'START_LOADING'

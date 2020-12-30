@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 import ProjectList from './project_list'
 
 const mapStateToProps = state => ({
-  projects: state.entities.projects
+  projects: state.entities.projects,
+  loading: state.ui.loading
 })
 
 const mapDispatchToProps = dispatch => ({

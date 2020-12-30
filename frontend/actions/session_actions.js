@@ -15,13 +15,21 @@ export const receiveErrors = (errors) => ({
   errors
 })
 
-export const login = (user) => dispatch => 
+export const startLoading = () => ({
+  type: types.START_LOADING
+})
+
+export const login = (user) => dispatch => {
+  dispatch(startLoading())
   SessionAPIUtil.login(user).then((user) => dispatch(receiveCurrentUser(user)))
+}
 
-
-export const signup = (user) => dispatch => 
+export const signup = (user) => dispatch =>{ 
+  dispatch(startLoading())
   SessionAPIUtil.signup(user).then((user) => dispatch(receiveCurrentUser(user)))
+}
 
-
-export const logout = () => dispatch => 
+export const logout = () => dispatch => {
+  dispatch(startLoading())
   SessionAPIUtil.logout().then(() => dispatch(logoutCurrentUser()))
+}

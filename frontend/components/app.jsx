@@ -19,7 +19,6 @@ const App = () => (
       <Route path='/projects/:projectId/edit' component={EditProjectFormContainer} />
       <Route path='/projects/new' component={NewProjectFormContainer} />
       <Route exact path='/projects/:projectId' component={ProjectDetailContainer} />
-      <Route path='/projects/new' component={NewProjectFormContainer} />
       <AuthRoute path="/login" component={LoginFormContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} />
       <ProjectListContainer path='/'/>
