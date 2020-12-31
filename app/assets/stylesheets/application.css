@@ -20,6 +20,7 @@ h3,
 p,
 li,
 ul,
-div {
+div,
+label {
   font-family: "Roboto", sans-serif;
 }
