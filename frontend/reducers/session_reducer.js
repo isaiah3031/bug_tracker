@@ -7,7 +7,7 @@ const SessionReducer = (state = {}, action) => {
     case types.LOGOUT_CURRENT_USER:
       return {}
     default:
-      return state
+      return {}
   }
 }
 
