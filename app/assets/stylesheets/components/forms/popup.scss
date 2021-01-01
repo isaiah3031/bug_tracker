@@ -1,0 +1,23 @@
+.popup-background {
+  z-index: 10;
+  position: fixed;
+  top: 120px;
+  left: 0px;
+  height: 90vh;
+  width: 100vw;
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  .popup-container {
+    width: 300px;
+    font-size: 20px;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+button:hover {
+  cursor: pointer;
+}

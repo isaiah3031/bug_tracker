@@ -24,9 +24,9 @@ class SessionForm extends React.Component{
 
   handleLinkTo() {
     if (this.props.formType == 'login'){
-      return 'signup';
+      return 'signup?';
     } else {
-      return 'login'
+      return 'login?'
     }
   }
 
@@ -40,8 +40,10 @@ class SessionForm extends React.Component{
 
   render() {
     return (
-      <form>
-        <Link to={this.handleLinkTo()}>{this.handleLinkTo()}</Link>
+      <form className='session-form'>
+        <a>
+          <Link to={this.handleLinkTo()}>{this.handleLinkTo()}</Link>
+        </a>
         {this.handleErrors().map(error => <p>{error}</p>)}
         <h2>{this.props.formType}</h2>
         <label>Username:
@@ -58,7 +60,7 @@ class SessionForm extends React.Component{
             value={this.state.password} 
           />
         </label>
-        <input type="button" onClick={() => this.handleSubmit()} text='Submit'/>
+        <input type="button" onClick={() => this.handleSubmit()} value='Submit'/>
       </form>
     )
   }
