@@ -47,13 +47,12 @@ class StoryDetail extends React.Component {
             <button onClick={() => this.toggleForm()}>
               {this.state.editForm ? 'Back' : 'Edit'}
             </button>
-            <p>Description: {description}</p>
-            <p>Type: {story_type}</p>
-            <p>Iteration: {iteration}</p>
-            <p>Complexity: {complexity}</p>
-            <p>Status: {status}</p>
-            <p>Priority: {priority}</p>
-            <p>Assigned To: {assigned_to}</p>
+            <p>Type: <p>{story_type}</p></p>
+            <p>Iteration: <p>{iteration}</p></p>
+            <p>Complexity: <p>{complexity}</p></p>
+            <p>Status: <p>{status}</p></p>
+            <p>Priority: <p>{priority}</p></p>
+            <p>Assigned To: <p>{assigned_to}</p></p>
             <CommentFormContainer story={story} />
             <CommentListContainer story={story} />
           </>

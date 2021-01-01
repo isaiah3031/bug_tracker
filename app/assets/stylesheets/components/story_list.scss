@@ -46,9 +46,14 @@ $off-white: #f4f4f4;
     padding: 15px 5px;
     border-bottom: solid;
     border-width: thin;
+    p {
+      display: flex;
+      justify-content: space-between;
+    }
   }
   .story-component:hover {
     cursor: pointer;
+    background-color: lightblue;
   }
   .story-component:last-child {
     border: none;

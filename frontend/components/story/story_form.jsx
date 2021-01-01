@@ -61,7 +61,7 @@ class StoryForm extends React.Component {
             id='story_type'
             value={this.state.story_type}
             onChange={() => this.handleChanges()}>
-            <option value='bug' selected="selected">bug</option>    
+            <option value='bug' value="selected">bug</option>    
             <option value='feature'>feature</option>
           </select>
         </label>
@@ -72,7 +72,7 @@ class StoryForm extends React.Component {
             onChange={() => this.handleChanges()}>
             <option value='current'>current</option>    
             <option value='backlog'>backlog</option>
-            <option  value='icebox' selected="selected">icebox</option>
+            <option  value='icebox' value="selected">icebox</option>
           </select>
         </label>
         <label className='select-label'> Complexity:
@@ -80,7 +80,7 @@ class StoryForm extends React.Component {
             id='complexity'
             value={this.state.complexity}
             onChange={() => this.handleChanges()}>
-            <option value='-1' selected="selected">unestimated</option>    
+            <option value='-1' value="selected">unestimated</option>    
             <option value='1'>1</option>
             <option value='2'>2</option>
           </select>
