@@ -18,6 +18,7 @@ const ProjectList = (props) => {
 
   return (
     <ul className='project-list'>
+      <h2>Projects</h2>
       {Object.values(projects).map(project => {
         return <li key={project.id} onClick={() => showProject(project.id)}>
           {project.name}
