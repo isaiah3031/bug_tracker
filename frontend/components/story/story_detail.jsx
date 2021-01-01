@@ -55,7 +55,7 @@ class StoryDetail extends React.Component {
             <p>Priority: {priority}</p>
             <p>Assigned To: {assigned_to}</p>
             <CommentFormContainer story={story} />
-            <CommentListContainer storyId={id} />
+            <CommentListContainer story={story} />
           </>
         )}
       } else {

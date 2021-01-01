@@ -10,16 +10,16 @@ export const fetchStory = (projectId, storyId) =>
     url: `/project/${projectId}/stories/${storyId}`
   })
 
-export const createStory = (projectId, story) => 
+export const createStory = (story) => 
   $.ajax({
     type: 'POST',
-    url: `project/${projectId}/stories`,
-    data: story
+    url: `project/${story.project_id}/stories`,
+    data: {story: story}
   })
 
-export const editStory = (projectId, storyId, story) =>
+export const editStory = (story) =>
   $.ajax({
     type: 'GET',
-    url: `/project/${projectId}/stories/${storyId}/edit`,
-    data: story
+    url: `/project/${story.project_id}/stories/${story.id}/edit`,
+    data: {story: story}
   })

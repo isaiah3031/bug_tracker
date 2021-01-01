@@ -8,7 +8,7 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchComments: (projectId, storyId) => dispatch(fetchComments(projectId, storyId))
+  fetchComments: (story) => dispatch(fetchComments(story))
 })
 
 const CommentListContainer = connect(

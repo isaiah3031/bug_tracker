@@ -17,28 +17,28 @@ export const startLoading = () => ({
 
 export const fetchStories = (projectId) => dispatch => {
   dispatch(startLoading())
-  StoryAPI.fetchStories(projectId).then(stories =>
+  return StoryAPI.fetchStories(projectId).then(stories =>
     dispatch(receiveStories(stories))
   )
 }
 
 export const fetchStory = (projectId, storyId) => dispatch => {
   dispatch(startLoading())
-  StoryAPI.fetchStory(projectId, storyId).then(story =>
+  return StoryAPI.fetchStory(projectId, storyId).then(story =>
     dispatch(receiveStory(story))
   )
 }
 
-export const createStory = (projectId, story) => dispatch =>{
+export const createStory = (story) => dispatch =>{
   dispatch(startLoading())
-  StoryAPI.createStory(projectId, story).then(story => 
+  return StoryAPI.createStory(story).then(story => 
       dispatch(receiveStory(story))
   )
 }
 
-export const editStory = (projectId, storyId, story) => dispatch => {
+export const editStory = (story) => dispatch => {
   dispatch(startLoading())
-  StoryAPI.editStory(projectId, storyId, story).then(story => 
+  return StoryAPI.editStory(story).then(story => 
     dispatch(receiveStory(story))
   )
 }

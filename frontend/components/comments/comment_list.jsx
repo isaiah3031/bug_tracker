@@ -3,15 +3,15 @@ import { withRouter } from 'react-router-dom'
 
 class CommentList extends React.Component {
   componentWillMount() {
-    let projectId = this.props.match.params.projectId
-    this.props.fetchComments(projectId, this.props.storyId)
+    this.props.fetchComments(this.props.story)
   }
   
   render() {
     let comments = this.props.comments
+    
     return (
       <ul>
-        {Object.values(comments).map(comment =>{
+        {Object.values(comments).reverse().map(comment =>{
           return <div>
             {comment.is_reject ? 'REJECT' : ''}
             <li>{comment.text}</li>

@@ -48,8 +48,9 @@ class StoryForm extends React.Component {
   
   handleSubmit() {
     event.preventDefault()
-    this.props.processForm(this.state)
-    location.reload()
+    this.props.processForm(this.state).then(() =>
+      this.props.fetchStories(this.state.project_id)
+    )
   }
 
   render() {

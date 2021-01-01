@@ -19,8 +19,9 @@ class CommentForm extends React.Component {
   
   handleSubmit() {
     event.preventDefault()
-    this.props.processForm(this.props.story, this.state)
-    location.reload()
+    this.props.processForm(this.props.story, this.state).then(() => {
+      this.props.fetchComments(this.props.story)
+    })
   }
 
   render() {

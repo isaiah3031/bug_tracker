@@ -14,30 +14,34 @@ export const receiveComment = (comment) => ({
 export const startLoading = () => ({
   type: types.START_LOADING
 })
-
-export const fetchComments = (projectId, storyId) => dispatch => {
+// Done
+export const fetchComments = (story) => dispatch => {
   dispatch(startLoading())
-  CommentAPI.fetchComments(projectId, storyId).then(comments =>
+  return CommentAPI.fetchComments(story).then(comments =>
     dispatch(receiveComments(comments))
   )
 }
-export const fetchComment = (projectId, storyId, commentId) => dispatch => {
+
+// Consider deleting
+export const fetchComment = (story, commentId) => dispatch => {
   dispatch(startLoading())
-  CommentAPI.fetchComment(projectId, storyId, commentId).then(comment =>
+  return CommentAPI.fetchComment(story, commentId).then(comment =>
     dispatch(receiveComment(comment))
   )
 }
 
+// done
 export const createComment = (story, comment) => dispatch => {
   dispatch(startLoading())
-  CommentAPI.createComment(story.projectId, story.id, comment).then(comment =>
+  return CommentAPI.createComment(story, comment).then(comment =>
     dispatch(receiveComment(comment))
   )
 }
 
-export const editComment = (projectId, storyId, commentId, comment) => dispatch => {
+// Consider deleting
+export const editComment = (projectId, comment) => dispatch => {
   dispatch(startLoading())
-  CommentAPI.editComment(projectId, storyId, commentId, comment).then(comment =>
+  return CommentAPI.editComment(projectId, comment).then(comment =>
     dispatch(receiveComment(comment))
   )
 }

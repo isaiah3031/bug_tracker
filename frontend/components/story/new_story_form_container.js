@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import StoryForm from './story_form'
-import { createStory } from '../../actions/stories_actions'
+import { createStory, fetchStories } from '../../actions/stories_actions'
 
 const mapStateToProps = (state, ownProps) => ({
   formType: 'new',
@@ -9,7 +9,8 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  processForm: (story) => dispatch(createStory(story.project_id, {story: story}))
+  processForm: (story) => dispatch(createStory(story)),
+  fetchStories: (projectId) => dispatch(fetchStories(projectId))
 })
 
 const NewStoryFormContainer = connect(

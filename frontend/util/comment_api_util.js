@@ -1,25 +1,25 @@
-export const fetchComments = (project_id, story_id) => 
+export const fetchComments = (story) => 
   $.ajax({
     type: 'GET',
-    url: `project/${project_id}/stories/${story_id}/comments`
+    url: `project/${story.project_id}/stories/${story.id}/comments`
   })
 
-export const fetchComment = (project_id, story_id, comment_id) => 
+export const fetchComment = (story, comment_id) => 
   $.ajax({
     type: 'GET',
-    url: `project/${project_id}/stories/${story_id}/comments/${comment_id}`
+    url: `project/${story.project_id}/stories/${story.id}/comments/${comment_id}`
   })
 
-export const createComment = (project_id, story_id, comment) => 
+export const createComment = (story, comment) => 
   $.ajax({
     type: 'POST',
-    url: `project/${project_id}/stories/${story_id}/comments`,
+    url: `project/${story.project_id}/stories/${story.id}/comments`,
     data: { comment: comment }
   })
 
-export const editComment = (project_id, story_id, comment_id, comment) =>
+export const editComment = (project_id, comment) =>
   $.ajax({
     type: 'GET',
-    url: `project/${project_id}/stories/${story_id}/comments/${comment_id}/edit`,
+    url: `project/${project_id}/stories/${comment.story_id}/comments/${comment.id}/edit`,
     data: { comment: comment }
   })

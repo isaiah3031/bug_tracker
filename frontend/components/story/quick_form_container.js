@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { editStory } from '../../actions/stories_actions'
+import { editStory, fetchStories} from '../../actions/stories_actions'
 import QuickForm from './quick_form'
 
 const mapStateToProps = (state, ownProps) => ({
@@ -8,7 +8,8 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  processForm: (story) => dispatch(editStory(story.project_id, story.id, { story: story }))
+  processForm: (story) => dispatch(editStory(story)),
+  fetchStories: (projectId) => dispatch(fetchStories(projectId))
 })
 
 const QuickFormContainer = connect(

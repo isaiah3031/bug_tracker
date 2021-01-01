@@ -5,11 +5,20 @@ import React from 'react'
 class QuickForm extends React.Component {
   constructor(props) {
     super(props)
+    this.setDefaultState()
   }
 
+  setDefaultState() {
+    let {iteration} = this.props.story
+    if (iteration == 'backlog') {
+      this.autofillCurrentForm()
+    } else if (iteration == 'current') {
+      this.autofillFinishForm()
+    }
+  }
   autofillCurrentForm() {
     const {story: {description, story_type, complexity, project_id, priority, id } } = this.props
-    return ({
+    this.state = {
       description: description,
       story_type: story_type,
       iteration: 'current',
@@ -18,12 +27,12 @@ class QuickForm extends React.Component {
       priority: priority,
       assigned_to: this.props.currentUser.id,
       id: id
-    })
+    }
   }
 
   autofillFinishForm() {
     const {story: {description, story_type, complexity, project_id, priority, id } } = this.props
-    return ({
+    this.state = {
       description: description,
       story_type: story_type,
       iteration: 'finished',
@@ -31,24 +40,21 @@ class QuickForm extends React.Component {
       project_id: project_id,
       priority: priority,
       id: id
-    })
+    }
   }
 
   // will submit the form accordingly depending on the iteration passed to it.
   handleSubmit() {
-    if (this.props.story.iteration == 'backlog') {
-      this.props.processForm(this.autofillCurrentForm())
-    } else {
-      this.props.processForm(this.autofillFinishForm())
-    }
-    location.reload()
+    this.props.processForm(this.state).then(() =>
+      this.props.fetchStories(this.props.story.project_id)
+    )
   }
 
   handleText() {
-    let story = this.props.story
-    if (story.iteration == 'backlog') {
+    let {iteration} = this.props.story
+    if (iteration == 'backlog') {
       return 'Start'
-    } else if (story.iteration == 'current') {
+    } else if (iteration == 'current') {
       return 'Finish'
     }
   }
