@@ -44,6 +44,9 @@ $off-white: #f4f4f4;
     padding: 15px 5px;
     border-bottom: solid;
     border-width: thin;
+    .description {
+      margin: 5px;
+    }
     p {
       display: flex;
       justify-content: space-between;

@@ -74,17 +74,14 @@ class StoryList extends React.Component {
     return (
       // Loops through stories of each iteration to expose a single story instance. 
       // Array of Iterations => Iterations Array => story object
-
-      <>
         <div className='iterations'>
-          {Object.keys(sortedStories).map(iteration => {
-            
-            return <div>
-              <h2>{iteration}</h2>
+          {Object.keys(sortedStories).map(iteration => 
               <div className='story-list'>
+                <h2>{iteration}</h2>
               {sortedStories[iteration].map(story => {
                 return <li className='story-component' key={story.id}>
-                  <p onClick={() => this.setSelectedStory(story.id)}>
+                  <p className='description'
+                    onClick={() => this.setSelectedStory(story.id)}>
                     {this.state.selectedStory == story.id ? story.description : `${story.description.substr(0, 60)}...`}
                   </p>
                   <QuickFormContainer story={story}/>
@@ -93,10 +90,8 @@ class StoryList extends React.Component {
                 }
               )}
             </div>
-          </div>
-        })}
+        )}
       </div>
-    </>
   )}
 }
 

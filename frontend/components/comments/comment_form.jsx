@@ -26,7 +26,7 @@ class CommentForm extends React.Component {
 
   render() {
     return (
-      <form>
+      <form className='comment-form'>
         <label>Leave a Comment</label>
         <textarea 
           id='text'
