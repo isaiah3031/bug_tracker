@@ -18,6 +18,10 @@ const ProjectDetail = (props) => {
     }
   }
 
+  const renderLogin = () => {
+    props.history.push('/login')
+  }
+
     let currentProject = props.project
     return (
       <div>
@@ -29,7 +33,10 @@ const ProjectDetail = (props) => {
         </button>
         <div className='project-name'>
           <h2>{currentProject.name}
-            <ToggleNewForm projectId={props.match.params.projectId}/>
+            {props.loggedIn ? 
+              <ToggleNewForm projectId={props.match.params.projectId}/> :
+              renderLogin()
+            }
           </h2>
         </div>
         <StoryListContainer />

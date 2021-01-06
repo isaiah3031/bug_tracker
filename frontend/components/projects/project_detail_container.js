@@ -4,6 +4,7 @@ import ProjectDetail from './project_detail'
 
 const mapStateToProps = state => ({
   project: state.entities.projects,
+  loggedIn: Boolean(state.session.id)
 })
 
 const mapDispatchToProps = dispatch => ({
