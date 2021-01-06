@@ -14,7 +14,7 @@
   }
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 500px) {
   .iterations {
     width: 620px;
     margin: 0 auto;
@@ -24,12 +24,13 @@
   }
 }
 
-@media only screen and (min-width: 1300px) {
+@media only screen and (min-width: 850px) {
   .iterations {
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
     .story-list {
-      width: 250px;
+      width: 20%;
+      height: 70vh;
     }
   }
 }
