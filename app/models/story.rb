@@ -8,28 +8,40 @@ class Story < ApplicationRecord
   validates :complexity, inclusion: { in: [-1, 1, 2, 3]}
   before_validation :ensure_priority
 
+  # Sets the priority to the 1 + the count of stories with this same project and iteration.
+  # By default each priority is unique.
   def ensure_priority
     self.priority || self.priority = count_by_project_and_iteration + 1
   end
 
+  # returns a project with a matching project, iteration, and priority.
+  # if one is found it updates the priority by adding one
+  # then calls the method again with the new story and priority
   def self.update_priorities(story, priority)
     match = story.matching_project_and_iteration
+                .where.not(id: story.id)
                 .find_by(priority: priority)
-
+    # if Story.priority > goalPriority
+    # find story where priority == story.priority - 1
+    # swap priorities
+    # recursion time
     if match
-      priority = priority.to_i + 1
+      # When the destination priority is lower than the selected one, I should subtract one from 
+      # The destination to move it up
+      priority = priority.to_i + 1 if match.priority
       Story.update_priorities(match, priority)
       match.update(priority: priority)
-      match.save
     end
   end
 
+  # Returns stories belonging to the same project and iteration.
   def matching_project_and_iteration
     Story
       .where(iteration: self.iteration)
       .where(project_id: self.project_id)
   end
 
+  # Returns the number of stories belonging to the same project and iteration.
   def count_by_project_and_iteration
     self.matching_project_and_iteration.count
   end
