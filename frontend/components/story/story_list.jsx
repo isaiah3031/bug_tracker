@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom'
 import StoryDetail from './story_detail'
 import QuickFormContainer from './quick_form_container'
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
 class StoryList extends React.Component {
   constructor(props) {
@@ -62,6 +63,19 @@ class StoryList extends React.Component {
     }  
   }
 
+  updatePriority(story, newPriority) {
+    let updatedStory = story
+    updatedStory.priority = newPriority
+    this.props.editStory(updatedStory).then(() =>
+      this.props.fetchStories(this.props.match.params.projectId)
+    )
+  }
+
+  handleOnDragEnd(result) {
+    const story = this.props.stories[parseInt(result.draggableId)]
+    this.updatePriority(story, result.destination.index)
+  }
+
   // Loops through stories of each iteration to expose a single story instance. 
   // [iteration1, iteration2, iteration3, iteration4] => 
   // [story1, story2, story3...]
@@ -75,20 +89,35 @@ class StoryList extends React.Component {
     return (
       <div className='iterations'>
         {Object.keys(sortedStories).map(iteration => 
-            <div className='story-list'>
-            <h2>{iteration}</h2>
-            {sortedStories[iteration].map(story => 
-              <li className='story-component' key={story.id}>
-                <p className='description'
-                  onClick={() => this.setSelectedStory(story.id)}>
-                  {this.toggleDescription(story)}
-                </p>
-                <QuickFormContainer story={story}/>
-                <StoryDetail selectedStory={this.state.selectedStory} story={story} />
-              </li>
-            )
-          }
-        </div>
+          <DragDropContext onDragEnd={res => this.handleOnDragEnd(res)}>
+            <Droppable droppableId='story-component'>
+              {(provided) => (
+                <div className='story-list' {...provided.droppableProps} ref={provided.innerRef}>
+                <h2>{iteration}</h2>
+                  {sortedStories[iteration].map((story, index) => 
+                    <Draggable key={story.id} draggableId={story.id.toString()} story={story} index={story.priority}>
+                      {(provided) => (
+                        // Eventually put all of this in a storyPreview component
+                      <ul {...provided.draggableProps } 
+                        {...provided.dragHandleProps}
+                        ref={provided.innerRef}
+                        className='story-component' 
+                        key={story.id}>
+                        <p className='description'
+                          onClick={() => this.setSelectedStory(story.id)}>
+                          {this.toggleDescription(story)}
+                        </p>
+                        <QuickFormContainer story={story}/>
+                        <StoryDetail selectedStory={this.state.selectedStory} story={story} />
+                      </ul>
+                      )}
+                    </Draggable>
+                  )}
+                  {provided.placeholder}
+                </div>  
+              )}
+            </Droppable>
+          </DragDropContext>
       )}
     </div>
   )}

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { fetchStories } from '../../actions/stories_actions'
+import { fetchStories, editStory } from '../../actions/stories_actions'
 import StoryList from './story_list'
 
 const mapStateToProps = (state) => ({
@@ -8,7 +8,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchStories: projectId => dispatch(fetchStories(projectId))
+  fetchStories: projectId => dispatch(fetchStories(projectId)),
+  editStory: story => dispatch(editStory(story))
 })
 
 const StoryListContainer = connect(

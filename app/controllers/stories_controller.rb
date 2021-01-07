@@ -49,7 +49,8 @@ class StoriesController < ApplicationController
       :priority,
       :project_id,
       :author_id,
-      :assigned_to
+      :assigned_to,
+      :id
     )
   end
 end
