@@ -14,24 +14,27 @@ class Story < ApplicationRecord
     self.priority || self.priority = count_by_project_and_iteration + 1
   end
 
+  def self.swap_priorities(story1, story2)
+    let priority1 = story1.priority
+    let priority2 = story2.priority
+    story1.update(priority: priority2)
+    story2.update(priority: priority1)
+  end
   # returns a project with a matching project, iteration, and priority.
   # if one is found it updates the priority by adding one
   # then calls the method again with the new story and priority
-  def self.update_priorities(story, priority)
-    match = story.matching_project_and_iteration
-                .where.not(id: story.id)
-                .find_by(priority: priority)
-    # if Story.priority > goalPriority
-    # find story where priority == story.priority - 1
-    # swap priorities
-    # recursion time
-    if match
-      # When the destination priority is lower than the selected one, I should subtract one from 
-      # The destination to move it up
-      priority = priority.to_i + 1 if match.priority
-      Story.update_priorities(match, priority)
-      match.update(priority: priority)
+  def self.update_priorities(story, goalPriority)
+    if story.priority > goalPriority
+      match = story.matching_project_and_iteration
+           .find_by(priority: story.priority - 1)
+    elsif story.priority < goalPriority
+      match = story.matching_project_and_iteration
+           .find_by(priority: story.priority + 1)
+    else
+      return nil
     end
+    swap_priorities(story, match)
+    update_priorities(story, goalPriority)
   end
 
   # Returns stories belonging to the same project and iteration.

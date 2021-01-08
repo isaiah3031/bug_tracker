@@ -30,7 +30,7 @@ class StoriesController < ApplicationController
   def edit
     @story = Story.find_by_id(params[:id])
     if @story.update(story_params)
-      Story.update_priorities(@story, story_params[:priority])
+      Story.update_priorities(@story, params[:priority])
       render 'show'
     else
       render json: { error: 'Not all values were found.' }
@@ -45,7 +45,6 @@ class StoriesController < ApplicationController
       :story_type,
       :iteration,
       :complexity,
-      :priority,
       :project_id,
       :author_id,
       :assigned_to,
