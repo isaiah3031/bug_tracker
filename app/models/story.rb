@@ -23,19 +23,32 @@ class Story < ApplicationRecord
   # returns a project with a matching project, iteration, and priority.
   # if one is found it updates the priority by adding one
   # then calls the method again with the new story and priority
-  def self.update_priorities(story, goalPriority)
-    if story.priority > goalPriority
-      match = story.matching_project_and_iteration
-           .find_by(priority: story.priority - 1)
-    elsif story.priority < goalPriority
-      match = story.matching_project_and_iteration
-           .find_by(priority: story.priority + 1)
-    else
-      return nil
+  def self.update_priorities(story, goalPriority=nil)
+    match = story.matching_project_and_iteration
+           .where.not(id: story.id)
+           .find_by(priority: story.priority )
+    goalPriority ||= story.findGoal
+    return if !goalPriority || !match || goalPriority == match.priority || goalPriority == story.priority
+    
+    if (match.priority > goalPriority)
+      match.update(priority: match.priority - 1)
+    elsif (match.priority < goalPriority)
+      match.update(priority: match.priority + 1)
     end
-    swap_priorities(story, match)
-    update_priorities(story, goalPriority)
+    update_priorities(match, goalPriority)
   end
+  
+  def findGoal
+    self.matching_project_and_iteration.each_with_index do |story, index|
+      return index + 1 unless story.priority == index + 1
+    end  
+  end
+
+  def ensure_unique_priorities
+    self.matching_project_and_iteration.each_with_index do |story, index|
+      story.update(priority: index + 1) unless story.priority == index + 1 && story != self
+    end  
+  end 
 
   # Returns stories belonging to the same project and iteration.
   def matching_project_and_iteration

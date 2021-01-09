@@ -3,9 +3,11 @@ import React from 'react'
 class StoryForm extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {}
+  }
+  componentWillMount() {
     this.setFormDefaults()
   }
-
   setFormDefaults() {
     if (this.props.formType == 'new') {
       this.emptyState();
@@ -15,20 +17,19 @@ class StoryForm extends React.Component {
   }
 
   emptyState() {
-    this.state = {
+    this.setState({
       description: '',
       story_type: 'bug',
       iteration: 'icebox',
       complexity: '-1',
-      priority: -1,
       project_id: this.props.projectId,
       author_id: this.props.currentUser
-    }
+    })
   }
 
   inheritState() {
     let story = this.props.story
-    this.state = {
+    this.setState({
       description: story.description,
       story_type: story.story_type,
       iteration: story.iteration,
@@ -37,7 +38,7 @@ class StoryForm extends React.Component {
       priority: story.priority,
       author_id: this.props.currentUser,
       id: story.id
-    }
+    })
   }
 
   handleChanges() {
@@ -51,6 +52,7 @@ class StoryForm extends React.Component {
     this.props.processForm(this.state).then(() =>
       this.props.fetchStories(this.state.project_id)
     )
+    this.setFormDefaults()
   }
 
   render() {
