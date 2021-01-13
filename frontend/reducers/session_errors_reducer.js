@@ -1,6 +1,6 @@
 import * as types from '../constants/action_types'
 
-const SessionErrorsReducer = (state = {}, action) => {
+const sessionErrorsReducer = (state = {}, action) => {
   switch(action.type) {
     case types.RECEIVE_SESSION_ERRORS:
       return action.errors
@@ -11,4 +11,4 @@ const SessionErrorsReducer = (state = {}, action) => {
   }
 }
 
-export default SessionErrorsReducer
+export default sessionErrorsReducer
