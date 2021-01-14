@@ -3,7 +3,7 @@ var path = require('path');
 module.exports = {
   mode: 'development',
   entry: [
-    './app/javascript/packs/bug_tracker.jsx'
+    ''
   ],
   output: {
     path: path.resolve(__dirname),
