@@ -30,7 +30,7 @@ class StoriesController < ApplicationController
   def edit
     @story = Story.find_by_id(story_params_with_priority[:id])
     
-    Story.update_priorities(@story) if @story.priority != story_params_with_priority[:priority]
+    @story.update_priorities(story_params_with_priority[:priority]) if @story.priority != story_params_with_priority[:priority]
       
     if @story.update(story_params_with_priority)
       Story.update_priorities(@story)
