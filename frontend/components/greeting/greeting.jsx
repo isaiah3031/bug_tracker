@@ -1,6 +1,13 @@
-import React, { useEffect } from 'react'
+import React, { useState } from 'react'
 import {Link} from 'react-router-dom'
+import BugIcon from 'images/bug_icon.png'
+import UserIcon from 'images/user_icon.png'
+import ArrowIcon from 'images/arrow_icon.png'
+
 const Greeting = (props) => {
+  const [hovered, setHovered] = useState(false);
+  const toggleHover = () => setHovered(!hovered);
+
   if (props.currentUser.username !== undefined){
     return (
       <div className='greeting-container'>
@@ -13,14 +20,24 @@ const Greeting = (props) => {
   } else {
     return (
       <div className='greeting-container'>
-        <Link className='icon' to='/'>BugTracker</Link>
-      <div>
-        <Link to='/signup'>
-        <button>Sign up</button>
+        <Link className='icon' to='/'>
+          <img src={BugIcon} alt=''/>
+          <h1>Bug Hunter</h1>
         </Link>
-        <Link to='/login'>
-          <button>Login</button>
-        </Link>
+      <div onMouseEnter={toggleHover}
+          onMouseLeave={toggleHover}>
+          <img src={ArrowIcon} alt=''/>
+          <img src={UserIcon} alt=''/>
+
+        <div className={hovered ? 'session-options' : 'hidden'}>
+          <Link to='/signup'>
+            <a>Sign up</a>
+          </Link>
+          <Link to='/login'>
+            <a>Login</a>
+          </Link>
+        </div>
+
       </div>
     </div>
   )}
