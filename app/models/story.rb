@@ -25,19 +25,20 @@ class Story < ApplicationRecord
   # if one is found it updates the priority by adding one
   # then calls the method again with the new story and priority
   def update_priorities(goalPriority)
-    if self.priority != goalPriority
-      self.swap_adjacent_priorities(self, goalPriority)
+    if priority != goalPriority
+      swap_adjacent_priorities(goalPriority)
     else
       return
     end
 
-    update_priorities(self, goalPriority)
+    update_priorities(goalPriority)
   end
 
   # Swaps the priorities of stories ajacent to the one passed
   def swap_adjacent_priorities(goalPriority)
     # if the story's priority is greater the goal add one. Else add two. 
-    next_priority = self.priority > goalPriority ? self.priority + 1 : self.priority - 1
+    next_priority = self.priority > goalPriority ? self.priority - 1 : self.priority + 1
+    
     self.matching_project_and_iteration
          .where(priority: next_priority)
          .update(priority: self.priority)
@@ -51,7 +52,6 @@ class Story < ApplicationRecord
       .where(iteration: self.iteration)
       .where(project_id: self.project_id)
   end
-
 end
 
 # s = Story.new
