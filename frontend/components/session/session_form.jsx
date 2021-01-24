@@ -40,28 +40,33 @@ class SessionForm extends React.Component{
 
   render() {
     return (
-      <form className='session-form'>
-        <a>
-          <Link to={this.handleLinkTo()}>{this.handleLinkTo()}</Link>
-        </a>
-        {this.handleErrors().map(error => <p>{error}</p>)}
-        <h2>{this.props.formType}</h2>
-        <label>Username:
-          <input type='text'
-            id='username' 
-            onChange={(e) => this.handleInput(e)} 
-            value={this.state.username} 
-          />
-        </label>
-        <label>Password:
-          <input type='text' 
-            id='password'
-            onChange={(e) => this.handleInput(e)} 
-            value={this.state.password} 
-          />
-        </label>
-        <input type="button" onClick={() => this.handleSubmit()} value='Submit'/>
-      </form>
+      <div className='session-page'>
+        <div className='toggle-session'>
+          <h1>Welcome To BugHunter</h1>
+          <Link to={this.handleLinkTo()}>
+            <button>{this.handleLinkTo()}</button>
+          </Link>
+        </div>
+        <form className='session-form'>
+ 
+          {this.handleErrors().map(error => <p>{error}</p>)}
+          <h1>{this.props.formType == 'login' ? 'Sign In' : 'Create Account'}</h1>
+            <input type='text'
+              placeholder='Username'
+              id='username' 
+              onChange={(e) => this.handleInput(e)} 
+              value={this.state.username} 
+            />
+            <input type='text' 
+              placeholder='Password'
+              id='password'
+              onChange={(e) => this.handleInput(e)} 
+              value={this.state.password} 
+            />
+
+          <input type="button" onClick={() => this.handleSubmit()} value='Submit'/>
+        </form>
+      </div>
     )
   }
 }

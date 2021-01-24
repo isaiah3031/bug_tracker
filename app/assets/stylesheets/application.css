@@ -16,11 +16,13 @@
 
 h1,
 h2,
-h3,
+h3 {
+  font-family: "Cairo", sans-serif;
+}
+
+label,
 p,
-li,
-ul,
 div,
-label {
-  font-family: "Roboto", sans-serif;
+input {
+  font-family: "Montserrat", sans-serif;
 }

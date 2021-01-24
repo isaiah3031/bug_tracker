@@ -1,25 +1,46 @@
-.session-form {
-  width: 300px;
-  height: 300px;
-  padding: 5px;
-  text-align: center;
-  margin: auto;
-  a:hover {
-    cursor: pointer;
+.session-page {
+  display: flex;
+
+  .session-form {
+    width: 90%;
+    padding-top: 130px;
+    h1 {
+      color: #10ac92;
+    }
+    input[type="text"] {
+      margin: 15px 0;
+      font-size: 15px;
+      padding-left: 25px;
+      width: 400px;
+      height: 30px;
+      border: none;
+      background-color: #e9e9e9;
+    }
+    input[type="button"] {
+      margin: 25px;
+    }
   }
-  h2 {
-    font-size: 25px;
-    text-align: center;
-    text-transform: capitalize;
-    margin-bottom: 30px;
+
+  .toggle-session {
+    width: 50%;
+    padding-top: 175px;
+    background-color: #10ac92;
+    color: white;
+    button {
+      margin-top: 25px;
+    }
   }
-  label {
-    width: 100%;
-    margin: 10px 0;
+
+  .session-form,
+  .toggle-session {
+    margin: 0;
+    height: 100vh;
     display: flex;
-    justify-content: space-between;
-  }
-  button {
-    width: 30px;
+    align-items: center;
+    flex-direction: column;
+    h1 {
+      font-size: 30px;
+      margin-bottom: 30px;
+    }
   }
 }
