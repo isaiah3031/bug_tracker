@@ -26,3 +26,8 @@ div,
 input {
   font-family: "Montserrat", sans-serif;
 }
+
+body {
+  background-color: #eef4f5;
+  overflow: hidden;
+}

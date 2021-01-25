@@ -105,7 +105,7 @@ class StoryList extends React.Component {
             <Droppable droppableId='story-component'>
               {(provided) => (
                 <div className='story-list' {...provided.droppableProps} ref={provided.innerRef}>
-                <h2>{iteration}
+                <h2 className='iteration-header'>{iteration}
                   {this.props.loggedIn ? 
                   <ToggleNewForm projectId={this.props.match.params.projectId}/> :
                   renderLogin()

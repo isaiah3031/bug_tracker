@@ -5,7 +5,7 @@ $blue: #407aa5;
 $off-white: #f4f4f4;
 $main-green: #10ac92;
 $light-green: #eef4f5;
-// $light-grey: ;
+$light-grey: #e9e9e9;
 $medium-grey: #707070;
 
 .project-name {
@@ -22,16 +22,18 @@ $medium-grey: #707070;
 .iterations {
   display: flex;
   justify-content: center;
-  border: solid thin black;
-  margin: 0;
   h2 {
     font-size: 20px;
     padding: 10px;
     text-transform: capitalize;
-    background-color: $light-green;
+    background-color: $light-grey;
+    border: solid $medium-grey thin;
+    display: flex;
+    justify-content: space-between;
   }
   .story-list {
     overflow-y: auto;
+    margin: 40px 5px;
     h3 {
       font-weight: bold;
     }
@@ -39,12 +41,13 @@ $medium-grey: #707070;
 
   .story-component {
     padding: 15px 5px;
-    margin: 10px;
+    margin: 10px 0;
     border: solid $medium-grey thin;
     background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
     .description {
       margin: 5px;
     }
