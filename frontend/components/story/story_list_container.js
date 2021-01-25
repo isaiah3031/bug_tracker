@@ -4,6 +4,7 @@ import StoryList from './story_list'
 
 const mapStateToProps = (state) => ({
   stories: state.entities.stories,
+  loggedIn: Boolean(state.session.id),
   loading: state.ui.loading
 })
 

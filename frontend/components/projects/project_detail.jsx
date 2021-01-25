@@ -18,28 +18,15 @@ const ProjectDetail = (props) => {
     }
   }
 
-  const renderLogin = () => {
-    props.history.push('/login')
-  }
-
     let currentProject = props.project
     return (
       <div>
-        <button onClick={() => renderForm('edit')}>
-          Edit Project
-        </button>
-        <button onClick={() => renderForm('new')}>
-          New Project
-        </button>
-        <div className='project-name'>
+        <div className='project-bar'>
           <h2>{currentProject.name}
-            {props.loggedIn ? 
-              <ToggleNewForm projectId={props.match.params.projectId}/> :
-              renderLogin()
-            }
+
           </h2>
         </div>
-        <StoryListContainer />
+        <StoryListContainer className='main-content'/>
       </div>
     )
 }

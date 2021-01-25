@@ -1,5 +1,6 @@
 import React from 'react';
 import NewStoryFormContainer from './new_story_form_container'
+import PlusSign from 'images/plus_sign.png'
 
 class ToggleNewForm extends React.Component {
   constructor(props) {
@@ -20,7 +21,7 @@ class ToggleNewForm extends React.Component {
     return (
       <>
         <button onClick={() => this.toggleNewForm()}>
-          {this.state.newForm ? 'View Details' : 'New Story'}
+          {this.state.newForm ? 'View Detsail' : <img src={PlusSign}/>}
         </button>
         <div className={this.state.newForm ? 'popup-background' : 'hidden'}>
           <div className='popup-container'>

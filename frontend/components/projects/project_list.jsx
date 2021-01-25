@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import ToggleNewForm from '../story/toggle_new_form'
 import LoadingIcon from '../loading_icon'
+import ArrowIcon from 'images/arrow_icon.png'
 
 const ProjectList = (props) => {
   const [hovered, setHovered] = useState(false);
@@ -21,20 +22,30 @@ const ProjectList = (props) => {
 
   return (
     <>
-    <div className='project-bar'
-      onMouseEnter={toggleHover}
-      onMouseLeave={toggleHover}>
-      <h2>Choose a Project</h2>
-      <ul className={hovered ? 'project-list' : 'hidden'}t>
-        {Object.values(projects).map(project => {
-          return <li key={project.id} onClick={() => showProject(project.id)}>
-            {project.name}
-          </li>
-          }
-        )}
-      </ul>
+    <div className='project-bar'>
+      <div className='hoverable-pj-bar' onMouseEnter={toggleHover}
+          onMouseLeave={toggleHover}>
+        <h2>Choose a Project</h2> 
+        <img src={ArrowIcon}/>          
+        <ul className={hovered ? 'project-list' : 'hidden'}t>
+          {Object.values(projects).map(project => {
+            return (
+              <li  
+                className='hover-highlight' 
+                key={project.id} 
+                onClick={() => showProject(project.id)}>
+                {project.name}
+              </li>
+            )
+            }
+          )}
+        </ul>
+      </div>
+      <Link className='hover-highlight' to='projects/new'> 
+        <h2> Create A New Project</h2> 
+      </Link>
     </div>
-    <div className='welcome-msg-container'>
+    <div className='main-content'>
       <div className='welcome-msg'>
         <h1>Welcome to BugHunter!</h1>
         <p>

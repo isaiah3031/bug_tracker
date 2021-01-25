@@ -1,24 +1,56 @@
 .project-bar {
-  width: 100vw;
+  width: 97vw;
   background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   h2 {
-    font-size: 25px;
-    padding: 12px;
+    font-size: 30px;
+    padding: 10px;
+    width: fit-content;
+    height: fit-content;
   }
-  .hidden {
-    display: none;
+  .hover-highlight:hover {
+    h2 {
+      color: #10ac92;
+    }
   }
-  .project-list {
-    position: absolute;
-    background-color: white;
-    border: solid thin black;
-    width: 200px;
+  .hoverable-pj-bar {
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+
+    img {
+      height: 50px;
+      filter: invert(100%);
+    }
+    .hidden {
+      display: none;
+    }
+    .project-list {
+      position: absolute;
+      background-color: white;
+      border: solid thin black;
+      width: 280px;
+      top: 105px;
+      height: 200px;
+      overflow-y: auto;
+      li {
+        padding: 10px;
+        border-bottom: solid thin black;
+      }
+      li:hover {
+        color: #10ac92;
+        background-color: #eef4f5;
+      }
+    }
   }
 }
 
-.welcome-msg-container {
+.main-content {
   height: 100vh;
   width: 100vw;
+
   background-color: #eef4f5;
   color: #707070;
   .welcome-msg {

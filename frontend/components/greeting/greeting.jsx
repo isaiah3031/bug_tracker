@@ -11,10 +11,21 @@ const Greeting = (props) => {
   if (props.currentUser.username !== undefined){
     return (
       <div className='greeting-container'>
-        <Link className='icon' to='/'>BugTracker</Link>
-        <h1>Welcome {props.currentUser.username}
-          <button onClick={() => props.logout()}>Logout</button>          
-        </h1>
+        <Link className='icon' to='/'>
+          <img src={BugIcon} alt=''/>
+          <h1>Bug Hunter</h1>
+        </Link>      
+        <div className='user-info'>
+          <h1>Welcome {props.currentUser.username}</h1>
+          <div onMouseEnter={toggleHover}
+            onMouseLeave={toggleHover}>
+            <img src={ArrowIcon} alt=''/>
+            <img src={UserIcon} alt=''/>
+            <div className={hovered ? 'session-options' : 'hidden'}>
+              <a onClick={() => props.logout()}>Logout</a>  
+            </div>
+          </div>
+        </div>
       </div>
     )
   } else {

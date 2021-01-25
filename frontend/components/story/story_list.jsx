@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom'
 import StoryDetail from './story_detail'
 import QuickFormContainer from './quick_form_container'
+import ToggleNewForm from './toggle_new_form'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
 class StoryList extends React.Component {
@@ -76,6 +77,11 @@ class StoryList extends React.Component {
     this.updatePriority(story, result.destination.index)
   }
 
+  
+  renderLogin = () => {
+    props.history.push('/login')
+  }
+
   // Loops through stories of each iteration to expose a single story instance. 
   // [iteration1, iteration2, iteration3, iteration4] => 
   // [story1, story2, story3...]
@@ -87,13 +93,17 @@ class StoryList extends React.Component {
     let sortedStories = this.sortStoriesByIteration(this.sortStoriesByPriority())
 
     return (
-      <div className='iterations'>
+      <div className='main-content iterations'>
         {Object.keys(sortedStories).map(iteration => 
           <DragDropContext onDragEnd={res => this.handleOnDragEnd(res)}>
             <Droppable droppableId='story-component'>
               {(provided) => (
                 <div className='story-list' {...provided.droppableProps} ref={provided.innerRef}>
-                <h2>{iteration}</h2>
+                <h2>{iteration}
+                  {this.props.loggedIn ? 
+                  <ToggleNewForm projectId={this.props.match.params.projectId}/> :
+                  renderLogin()
+                }</h2>
                   {sortedStories[iteration].map((story, index) => 
                     <Draggable key={story.id} draggableId={story.id.toString()} story={story} index={story.priority}>
                       {(provided) => (
@@ -102,9 +112,10 @@ class StoryList extends React.Component {
                         {...provided.dragHandleProps}
                         ref={provided.innerRef}
                         className='story-component' 
-                        key={story.id}>
+                        key={story.id}
+                        onClick={() => this.setSelectedStory(story.id)}>
                         <p className='description'
-                          onClick={() => this.setSelectedStory(story.id)}>
+                          >
                           {this.toggleDescription(story)}
                         </p>
                         <QuickFormContainer story={story}/>

@@ -3,6 +3,10 @@ $dark-grey: #505356;
 $grey: #787d85;
 $blue: #407aa5;
 $off-white: #f4f4f4;
+$main-green: #10ac92;
+$light-green: #eef4f5;
+// $light-grey: ;
+$medium-grey: #707070;
 
 .project-name {
   font-size: 30px;
@@ -12,38 +16,32 @@ $off-white: #f4f4f4;
     width: fit-content;
     display: flex;
     flex-direction: column;
-    button {
-      width: fit-content;
-      margin: 8px auto;
-    }
   }
 }
 
 .iterations {
   display: flex;
   justify-content: center;
+  border: solid thin black;
   h2 {
     font-size: 20px;
     padding: 10px;
     text-transform: capitalize;
-    background-color: $dark-grey;
-    color: $off-white;
+    background-color: $light-green;
   }
   .story-list {
     overflow-y: auto;
     h3 {
       font-weight: bold;
-      background-color: $off-white;
     }
-    border-style: solid;
-    border-color: black;
-    border-width: thin;
   }
 
   .story-component {
     padding: 15px 5px;
-    border-bottom: solid;
-    border-width: thin;
+    margin: 10px;
+    border: solid $medium-grey thin;
+    background-color: white;
+    height: 150px;
     .description {
       margin: 5px;
     }
@@ -55,9 +53,6 @@ $off-white: #f4f4f4;
   }
   .story-component:hover {
     cursor: pointer;
-    background-color: lightblue;
-  }
-  .story-component:last-child {
-    border: none;
+    border-color: $main-green;
   }
 }
