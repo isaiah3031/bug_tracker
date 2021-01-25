@@ -23,6 +23,7 @@ $medium-grey: #707070;
   display: flex;
   justify-content: center;
   border: solid thin black;
+  margin: 0;
   h2 {
     font-size: 20px;
     padding: 10px;
@@ -41,9 +42,15 @@ $medium-grey: #707070;
     margin: 10px;
     border: solid $medium-grey thin;
     background-color: white;
-    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     .description {
       margin: 5px;
+    }
+    .creation-date {
+      margin-top: 35px;
+      text-align: right;
     }
     h4 {
       font-weight: 400;

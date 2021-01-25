@@ -6,3 +6,4 @@ json.complexity story.complexity
 json.project_id story.project_id
 json.priority story.priority
 json.assigned_to story.assigned_to
+json.created_at story.created_at

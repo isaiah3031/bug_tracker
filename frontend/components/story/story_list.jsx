@@ -82,6 +82,12 @@ class StoryList extends React.Component {
     props.history.push('/login')
   }
 
+  mmyy = (date) => {
+    let monthDay = date.split("-")
+    let months = ['Jan', 'Feb', "Mar", 'Apr', 'May', 'June', 'July', 'Aug', 'Oct', 'Nov', 'Dec']
+    return `${months[parseInt(monthDay[0]) - 1]} ${monthDay[1]}`
+  }
+
   // Loops through stories of each iteration to expose a single story instance. 
   // [iteration1, iteration2, iteration3, iteration4] => 
   // [story1, story2, story3...]
@@ -120,6 +126,7 @@ class StoryList extends React.Component {
                         </p>
                         <QuickFormContainer story={story}/>
                         <StoryDetail selectedStory={this.state.selectedStory} story={story} />
+                        <p className='creation-date'>{this.mmyy(story.created_at.substr(5,5))}</p>
                       </ul>
                       )}
                     </Draggable>
