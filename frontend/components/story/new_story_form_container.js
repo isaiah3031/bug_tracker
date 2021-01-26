@@ -5,7 +5,8 @@ import { createStory, fetchStories } from '../../actions/stories_actions'
 const mapStateToProps = (state, ownProps) => ({
   formType: 'new',
   currentUser: state.session.id,
-  projectId: ownProps.projectId
+  projectId: ownProps.projectId,
+  iteration: ownProps.iteration
 })
 
 const mapDispatchToProps = dispatch => ({

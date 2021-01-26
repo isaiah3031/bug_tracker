@@ -4,6 +4,9 @@
   width: 100%;
   justify-content: space-between;
   padding: 13px 2px;
+  .form-header {
+    margin: 10px 0 5px;
+  }
   .new-story-header > * {
     margin-bottom: 10px;
     color: black;
@@ -25,6 +28,7 @@
     justify-content: space-between;
     flex-direction: row;
     flex-wrap: wrap;
+
     .radio-item {
       padding: 2px;
       width: 45%;
@@ -38,7 +42,6 @@
     font-size: 14px;
     font-weight: bold;
     text-transform: uppercase;
-    margin-top: 5px;
   }
   input {
     padding: 2px;
@@ -57,7 +60,7 @@
     justify-content: space-between;
     border: solid thin;
     box-sizing: border-box;
-    margin: 3px auto;
+
     padding: 2px;
     select {
       border: none;
@@ -69,8 +72,4 @@
     width: 120px;
     margin: 5px auto;
   }
-}
-
-.story-form > * {
-  margin-top: 5px;
 }

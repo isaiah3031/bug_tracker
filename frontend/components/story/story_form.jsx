@@ -20,7 +20,7 @@ class StoryForm extends React.Component {
     this.setState({
       description: '',
       story_type: 'bug',
-      iteration: 'icebox',
+      iteration: this.props.iteration,
       complexity: '-1',
       project_id: this.props.projectId,
       author_id: this.props.currentUser
@@ -64,7 +64,7 @@ class StoryForm extends React.Component {
             <p>Add a new story to an iteration list</p>
           </div>
         ) : ''}
-        <label>Is this story a bug or a feature?</label>
+        <label className='form-header'>Is this story a bug or a feature?</label>
         <div className='radio-header'>    
           <label className='radio-item'>
             <input type='radio' 
@@ -81,7 +81,7 @@ class StoryForm extends React.Component {
               checked={this.state.story_type === 'feature'}/>Feature
           </label>
         </div>
-        <label>Which iteration does it belong to?</label>
+        <label className='form-header'>Which iteration does it belong to?</label>
         <div className='radio-header'>
           <label className='radio-item'>
             <input type='radio' 
@@ -113,7 +113,7 @@ class StoryForm extends React.Component {
             checked={this.state.iteration === 'finished'}/>Finished
           </label>
         </div>
-        <label className='select-label'> Complexity
+        <label className='select-label form-header'> Complexity
           <select 
             id='complexity'
             value={this.state.complexity}
@@ -123,19 +123,12 @@ class StoryForm extends React.Component {
             <option value='2'>2</option>
           </select>
         </label>
-        <label className='input-label'> Description:</label>
+        <label className='form-header'> Description:</label>
         <textarea
           id='description'
           value={this.state.description}
           onChange={() => this.handleChanges()}>
         </textarea> 
-        <label className='select-label'> Priority:
-          <input 
-            type='text'
-            id='priority'
-            value={this.state.priority}
-            onChange={() => this.handleChanges()}/>
-        </label>
         <button onClick={() => this.handleSubmit()}>Submit</button>
       </form>
     )

@@ -17,9 +17,18 @@ class ToggleNewForm extends React.Component {
       })
     }
   }
+
+  formPlacement(iteration) { 
+    debugger
+    if (iteration == 'icebox' || iteration == 'backlog') {
+      return 'popup-container'
+    } else {
+      return 'popup-container left'
+    }
+  }
   
   render() {
-    const { projectId } = this.props
+    const { projectId, iteration } = this.props
     return (
       <>
         <a className='new-story-button' onClick={(e) => this.toggleNewForm(e)}>
@@ -27,8 +36,8 @@ class ToggleNewForm extends React.Component {
         </a>
         <div onClick={(e) => this.toggleNewForm(e)} 
           className={this.state.newForm ? 'popup-background' : 'hidden'}>
-          <div className='popup-container'>
-            <NewStoryFormContainer projectId={projectId}/>
+          <div className={this.formPlacement(iteration)}>
+            <NewStoryFormContainer projectId={projectId} iteration={iteration}/>
           </div>
         </div>
       </>

@@ -107,7 +107,7 @@ class StoryList extends React.Component {
                 <div className='story-list' {...provided.droppableProps} ref={provided.innerRef}>
                 <h2 className='iteration-header'>{iteration}
                   {this.props.loggedIn ? 
-                  <ToggleNewForm projectId={this.props.match.params.projectId}/> :
+                  <ToggleNewForm projectId={this.props.match.params.projectId} iteration={iteration}/> :
                   renderLogin()
                 }</h2>
                   {sortedStories[iteration].map((story, index) => 
