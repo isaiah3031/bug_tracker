@@ -118,9 +118,9 @@ class StoryList extends React.Component {
                         {...provided.dragHandleProps}
                         ref={provided.innerRef}
                         className='story-component' 
-                        key={story.id}
-                        onClick={() => this.setSelectedStory(story.id)}>
+                        key={story.id}>
                         <p className='description'
+                          onClick={() => this.setSelectedStory(story.id)}
                           >
                           {this.toggleDescription(story)}
                         </p>

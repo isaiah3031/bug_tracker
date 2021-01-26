@@ -58,26 +58,62 @@ class StoryForm extends React.Component {
   render() {
     return (
       <form className='story-form'>
-        <label className='select-label'> Type:
-          <select 
-            id='story_type'
-            value={this.state.story_type}
-            onChange={() => this.handleChanges()}>
-            <option value='bug' value="selected">bug</option>    
-            <option value='feature'>feature</option>
-          </select>
-        </label>
-        <label className='select-label'> Iteration:
-          <select 
+        {this.props.formType === 'new' ? (
+          <div className='new-story-header'>
+            <h1>New Story</h1>
+            <p>Add a new story to an iteration list</p>
+          </div>
+        ) : ''}
+        <label>Is this story a bug or a feature?</label>
+        <div className='radio-header'>    
+          <label className='radio-item'>
+            <input type='radio' 
+              value='bug'
+              id='story_type'
+              onChange={() => this.handleChanges()}
+              checked={this.state.story_type === 'bug'}/>Bug
+            </label>    
+          <label className='radio-item'>
+            <input type='radio' 
+              value='feature'
+              id='story_type'
+              onChange={() => this.handleChanges()}
+              checked={this.state.story_type === 'feature'}/>Feature
+          </label>
+        </div>
+        <label>Which iteration does it belong to?</label>
+        <div className='radio-header'>
+          <label className='radio-item'>
+            <input type='radio' 
+            value='current'
             id='iteration'
-            value={this.state.iteration}
-            onChange={() => this.handleChanges()}>
-            <option value='current'>current</option>    
-            <option value='backlog'>backlog</option>
-            <option  value='icebox' value="selected">icebox</option>
-          </select>
-        </label>
-        <label className='select-label'> Complexity:
+            onChange={() => this.handleChanges()}
+            checked={this.state.iteration === 'current'}/>Current   
+          </label>
+          <label className='radio-item'>
+            <input type='radio' 
+            value='backlog'
+            id='iteration'
+            checked={this.state.iteration === 'backlog'}
+            onChange={() => this.handleChanges()}
+            />Backlog
+           </label>
+          <label className='radio-item'>
+            <input type='radio' 
+            value='icebox'
+            id='iteration'
+            onChange={() => this.handleChanges()}
+            checked={this.state.iteration === 'icebox'}/>Icebox
+          </label>
+          <label className='radio-item'>
+            <input type='radio' 
+            value='finished'
+            id='iteration'
+            onChange={() => this.handleChanges()}
+            checked={this.state.iteration === 'finished'}/>Finished
+          </label>
+        </div>
+        <label className='select-label'> Complexity
           <select 
             id='complexity'
             value={this.state.complexity}

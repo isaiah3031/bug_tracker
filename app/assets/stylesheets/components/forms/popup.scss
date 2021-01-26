@@ -5,11 +5,17 @@
   left: 0px;
   height: 90vh;
   width: 100vw;
-  background-color: white;
+  background-color: transparent;
   display: flex;
   justify-content: space-around;
   .popup-container {
-    width: 300px;
+    opacity: 1;
+    border: black thin solid;
+    background-color: white;
+    padding: 20px;
+    width: 325px;
+    height: 450px;
+    border-radius: 25px;
     font-size: 20px;
   }
 }
