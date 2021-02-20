@@ -20,4 +20,4 @@ $ PORT=3000 yarn start
 * Credits
     - [Search Icon](iconfinder.com)
     - [User Icon](iconfinder.com)
-    - [React Beautiful-DND](
+    - [React Beautiful-DND](https://github.com/atlassian/react-beautiful-dnd)
