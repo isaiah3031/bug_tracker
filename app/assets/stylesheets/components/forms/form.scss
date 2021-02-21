@@ -1,5 +1,9 @@
-.form {
+.form-container {
   width: 50vw;
+  margin: 0 auto;
+  border: solid thin black;
+}
+.form {
   display: flex;
   flex-direction: column;
   margin: 0 auto;

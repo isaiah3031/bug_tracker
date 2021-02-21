@@ -43,7 +43,7 @@ class ProjectForm extends React.Component {
 
   render() {
     return (
-      <form className='form'>
+      <form className='form form-container'>
         <h1>Add A New Project</h1>
         <input 
           id='name' 

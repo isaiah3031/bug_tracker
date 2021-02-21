@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { store } from '../../../frontend/store/store'
 import Root from '../../../frontend/components/root'
 import {logout} from '../../../frontend/actions/session_actions'
-window.logout = logout
+window.logout = logout()
 // You need to make the logout function publicly availible because of the
 // heroku loop 
 
