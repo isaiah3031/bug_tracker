@@ -59,7 +59,7 @@ class SessionForm extends React.Component{
             <button>{this.handleLinkTo()}</button>
           </Link>
         </div>
-        <form className='form session-form' onSubmit={this.handleSubmit}>
+        <form className='session-form' onSubmit={this.handleSubmit}>
  
           {this.handleErrors().map(error => <p>{error}</p>)}
           <h1>{this.props.formType === 'login' ? 'Sign In' : 'Create Account'}</h1>
