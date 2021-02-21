@@ -57,7 +57,7 @@ class StoryForm extends React.Component {
 
   render() {
     return (
-      <form className='story-form'>
+      <form className='story-form form'>
         {this.props.formType === 'new' ? (
           <div className='new-story-header'>
             <h1>New Story</h1>

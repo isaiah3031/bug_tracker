@@ -4,6 +4,7 @@ import StoryDetail from './story_detail'
 import QuickFormContainer from './quick_form_container'
 import ToggleNewForm from './toggle_new_form'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
+import NewStoryFormContainer from './new_story_form_container'
 
 class StoryList extends React.Component {
   constructor(props) {
@@ -94,7 +95,7 @@ class StoryList extends React.Component {
   render() {
     if (Object.values(this.props.stories).length == 0 ||
         this.props.stories.id) {
-      return null
+      return <NewStoryFormContainer projectId={this.props.match.params.projectId}/>
     }
     let sortedStories = this.sortStoriesByIteration(this.sortStoriesByPriority())
 

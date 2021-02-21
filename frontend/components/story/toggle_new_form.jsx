@@ -19,7 +19,6 @@ class ToggleNewForm extends React.Component {
   }
 
   formPlacement(iteration) { 
-    debugger
     if (iteration == 'icebox' || iteration == 'backlog') {
       return 'popup-container'
     } else {
