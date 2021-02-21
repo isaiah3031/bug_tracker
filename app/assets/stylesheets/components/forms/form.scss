@@ -1,12 +1,11 @@
 .form-container {
   width: 50vw;
   margin: 0 auto;
-  border: solid thin black;
 }
 .form {
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+  margin: 100px auto;
   h1 {
     font-size: 25px;
     color: #10ac92;
@@ -15,10 +14,11 @@
   }
   input[type="text"],
   input[type="password"] {
-    margin: 15px 0;
+    margin: 15px auto;
     font-size: 15px;
     padding-left: 25px;
-    width: 400px;
+    min-width: 200px;
+    width: 20vw;
     height: 30px;
     border: none;
     border: solid thin #10ac92;

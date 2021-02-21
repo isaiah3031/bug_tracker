@@ -21,15 +21,15 @@ export const startLoading = () => ({
 
 export const login = (user) => dispatch => {
   dispatch(startLoading())
-  SessionAPIUtil.login(user).then((user) => dispatch(receiveCurrentUser(user)))
+  return SessionAPIUtil.login(user).then((user) => dispatch(receiveCurrentUser(user)))
 }
 
 export const signup = (user) => dispatch =>{ 
   dispatch(startLoading())
-  SessionAPIUtil.signup(user).then((user) => dispatch(receiveCurrentUser(user)))
+  return SessionAPIUtil.signup(user).then((user) => dispatch(receiveCurrentUser(user)))
 }
 
 export const logout = () => dispatch => {
   dispatch(startLoading())
-  SessionAPIUtil.logout().then(() => dispatch(logoutCurrentUser()))
+  return SessionAPIUtil.logout().then(() => dispatch(logoutCurrentUser()))
 }
