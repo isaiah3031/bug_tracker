@@ -37,8 +37,8 @@ class ProjectForm extends React.Component {
       })
     } else {
       this.props.processForm(this.state.name)
+      this.props.history.push('/')
     }
-    
   }
 
   render() {
