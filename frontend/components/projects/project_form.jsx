@@ -43,13 +43,14 @@ class ProjectForm extends React.Component {
 
   render() {
     return (
-      <form>
-        <label>Name:
-          <input 
-            id='name' 
-            onChange={() => this.handleChange()}
-            value={this.state.name}/>
-        </label>
+      <form className='form'>
+        <h1>Add A New Project</h1>
+        <input 
+          id='name' 
+          placeholder="New Project"
+          type='text'
+          onChange={() => this.handleChange()}
+          value={this.state.name}/>
         <button onClick={() => this.submitForm()}>Submit</button>
       </form>
     )

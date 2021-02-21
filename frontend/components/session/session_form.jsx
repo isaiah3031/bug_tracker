@@ -7,9 +7,17 @@ class SessionForm extends React.Component{
     this.state = {
       username: '',
       password: ''
-    }
+    } 
+
     this.handleInput = this.handleInput.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  setEmptyState() {
+    this.setState({
+      username: '',
+      password: ''
+    })
   }
 
   handleInput(e) {
@@ -20,10 +28,14 @@ class SessionForm extends React.Component{
 
   handleSubmit() {
     this.props.processForm(this.state)
+    this.setState({
+      username: '',
+      password: ''
+    })
   }
 
   handleLinkTo() {
-    if (this.props.formType == 'login'){
+    if (this.props.formType === 'login'){
       return 'signup?';
     } else {
       return 'login?'
@@ -42,29 +54,28 @@ class SessionForm extends React.Component{
     return (
       <div className='session-page'>
         <div className='toggle-session'>
-          <h1>Welcome To BugHunter</h1>
+          <h1>Welcome To MovieApp</h1>
           <Link to={this.handleLinkTo()}>
             <button>{this.handleLinkTo()}</button>
           </Link>
         </div>
-        <form className='session-form'>
+        <form className='form session-form' onSubmit={this.handleSubmit}>
  
           {this.handleErrors().map(error => <p>{error}</p>)}
-          <h1>{this.props.formType == 'login' ? 'Sign In' : 'Create Account'}</h1>
+          <h1>{this.props.formType === 'login' ? 'Sign In' : 'Create Account'}</h1>
             <input type='text'
               placeholder='Username'
               id='username' 
               onChange={(e) => this.handleInput(e)} 
               value={this.state.username} 
             />
-            <input type='text' 
+            <input type='password' 
               placeholder='Password'
               id='password'
               onChange={(e) => this.handleInput(e)} 
               value={this.state.password} 
             />
-
-          <input type="button" onClick={() => this.handleSubmit()} value='Submit'/>
+            <button type="submit" onSubmit={() => this.handleSubmit()}>Submit</button>
         </form>
       </div>
     )

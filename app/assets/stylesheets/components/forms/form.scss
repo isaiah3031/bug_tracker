@@ -1,0 +1,28 @@
+.form {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  h1 {
+    font-size: 25px;
+    color: #10ac92;
+    width: fit-content;
+    margin: 0 auto;
+  }
+  input[type="text"],
+  input[type="password"] {
+    margin: 15px 0;
+    font-size: 15px;
+    padding-left: 25px;
+    width: 400px;
+    height: 30px;
+    border: none;
+    border: solid thin #10ac92;
+    background-color: #eef4f5;
+  }
+  input[type="button"],
+  button {
+    margin: 25px auto;
+    width: fit-content;
+  }
+}
