@@ -1,24 +1,24 @@
-# README
+About
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A SPA built with React and Redux over a rails API to enable CRUD operations on tasks. Uses react-beautiful-dnd to allow users to change the priorities of a task by clicking and dragging up or down. 
 
-Things you may want to cover:
+Installation
+```
+* Clone this repository
+$ git clone https://github.com/isaiah3031/bug_tracker
 
-* Ruby version
+# Go into the repository
+$ cd bug_tracker
 
-* System dependencies
+# install frontend and backend dependencies 
+$ bundle install
+$ yarn install
 
-* Configuration
+# Run  
+$ rails s
+```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Credits
+    - [Search Icon](iconfinder.com)
+    - [User Icon](iconfinder.com)
+    - [React Beautiful-DND](https://github.com/atlassian/react-beautiful-dnd)
