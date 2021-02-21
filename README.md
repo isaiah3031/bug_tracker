@@ -10,11 +10,12 @@ $ git clone https://github.com/isaiah3031/bug_tracker
 # Go into the repository
 $ cd bug_tracker
 
-# install frontend dependencies 
+# install frontend and backend dependencies 
+$ bundle install
 $ yarn install
 
-# Run the frontend 
-$ PORT=3000 yarn start
+# Run  
+$ rails s
 ```
 
 * Credits
