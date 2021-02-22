@@ -6,6 +6,10 @@ const ProjectReducer = (state = {}, action) => {
       return action.projects
     case (types.RECEIVE_PROJECT):
       return action.project
+    case (types.REMOVE_PROJECT):
+      let newState = Object.assign({}, state)
+      delete newState[action.projectId]
+      return newState
     default: 
       return state;
   }

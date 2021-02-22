@@ -2,6 +2,7 @@
 
 class Story < ApplicationRecord
   belongs_to :project
+  has_many :comments, :dependent => :delete_all
   belongs_to :author, foreign_key: :author_id, class_name: :User
   belongs_to :assigned_users, foreign_key: :assigned_to, class_name: :User, optional: true
   validates :description, :story_type, :iteration, presence: :true

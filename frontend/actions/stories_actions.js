@@ -11,6 +11,11 @@ export const receiveStory = (story) => ({
   story
 })
 
+export const removeStory = (story) => ({
+  type: types.REMOVE_STORY,
+  story
+})
+
 export const startLoading = () => ({
   type: types.START_LOADING
 })
@@ -42,3 +47,9 @@ export const editStory = (story) => dispatch => {
     dispatch(receiveStory(story))
   )
 }
+
+export const deleteStory = story => dispatch => {
+  return StoryAPI.deleteStory(story).then(() => {
+    return dispatch(removeStory(story))
+  })
+  }

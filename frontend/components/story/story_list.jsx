@@ -93,6 +93,7 @@ class StoryList extends React.Component {
   // [iteration1, iteration2, iteration3, iteration4] => 
   // [story1, story2, story3...]
   render() {
+    if (this.props.stories.id) debugger
     if (Object.values(this.props.stories).length == 0 ||
         this.props.stories.id) {
       return <NewStoryFormContainer projectId={this.props.match.params.projectId}/>
@@ -126,7 +127,10 @@ class StoryList extends React.Component {
                           {this.toggleDescription(story)}
                         </p>
                         <QuickFormContainer story={story}/>
-                        <StoryDetail selectedStory={this.state.selectedStory} story={story} />
+                        <StoryDetail 
+                          selectedStory={this.state.selectedStory} 
+                          story={story} 
+                          deleteStory={this.props.deleteStory}/>
                         <p className='creation-date'>{this.mmyy(story.created_at.substr(5,5))}</p>
                       </ul>
                       )}

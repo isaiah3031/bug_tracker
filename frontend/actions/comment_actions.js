@@ -11,9 +11,18 @@ export const receiveComment = (comment) => ({
   comment
 })
 
+export const removeComment = comment => ({
+  type: types.REMOVE_COMMENT,
+  comment
+})
+
 export const startLoading = () => ({
   type: types.START_LOADING
 })
+
+export const deleteComment = (story, comment) => dispatch =>
+  CommentAPI.deleteComment(story, comment).then(() => dispatch(removeComment(comment)))
+
 // Done
 export const fetchComments = (story) => dispatch => {
   dispatch(startLoading())

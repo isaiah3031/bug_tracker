@@ -1,4 +1,5 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 import EditStoryFormContainer from './edit_story_form_container'
 import CommentListContainer from '../comments/comment_list_container'
 import CommentFormContainer from '../comments/comment_form_container'
@@ -31,6 +32,7 @@ class StoryDetail extends React.Component {
         priority,
         assigned_to
       }} = this.props
+      
     if (selectedStory == id) {
       if (this.state.editForm) {
         return (
@@ -47,6 +49,12 @@ class StoryDetail extends React.Component {
             <button onClick={() => this.toggleForm()}>
               {this.state.editForm ? 'Back' : 'Edit'}
             </button>
+            <button onClick={() => {
+              this.props.deleteStory(story)
+              setTimeout(() => {
+                this.props.history.go()
+              }, 20)
+              }}>delete</button>
             <h4>Type: <p>{story_type}</p></h4>
             <h4>Iteration: <p>{iteration}</p></h4>
             <h4>Complexity: <p>{complexity}</p></h4>
@@ -63,4 +71,4 @@ class StoryDetail extends React.Component {
   }
 }
 
-export default StoryDetail
+export default withRouter(StoryDetail)

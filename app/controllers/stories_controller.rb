@@ -42,6 +42,15 @@ class StoriesController < ApplicationController
     end
   end
 
+  def destroy
+    @story = Story.find_by_id(params[:id])
+    if @story.destroy 
+      render json: { success: 'Story deleted' }
+    else
+      render json: { errors: 'Story not found' }
+    end
+  end
+
   private
 
   def story_params

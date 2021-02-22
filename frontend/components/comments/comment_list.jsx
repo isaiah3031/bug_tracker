@@ -1,26 +1,25 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { withRouter } from 'react-router-dom'
 
-class CommentList extends React.Component {
-  componentWillMount() {
-    this.props.fetchComments(this.props.story)
-  }
+const CommentList = ({story, deleteComment, fetchComments, comments}) => {
+  useEffect(() => {
+    fetchComments(story)
+  }, [])
   
-  render() {
-    let comments = this.props.comments
     
-    return (
-      <ul>
-        {Object.values(comments).reverse().map(comment =>{
-          return <div>
-            {comment.is_reject ? 'REJECT' : ''}
-            <li>{comment.text}</li>
-          </div>
-          }
-        )}
-      </ul>
-    )
-  }
+  return (
+    <ul>
+      {Object.values(comments).reverse().map(comment =>{
+        return <div>
+          <button onClick={() => deleteComment(story, comment)}>delete</button>
+          {comment.is_reject ? 'REJECT' : ''}
+          <li>{comment.text}</li>
+        </div>
+        }
+      )}
+    </ul>
+  )
+  
 }
 
 export default withRouter(CommentList)

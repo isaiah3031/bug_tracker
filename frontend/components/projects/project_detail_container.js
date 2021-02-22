@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { fetchProject } from '../../actions/project_actions'
+import { fetchProject, deleteProject } from '../../actions/project_actions'
 import ProjectDetail from './project_detail'
 
 const mapStateToProps = state => ({
@@ -8,7 +8,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchProject: projectId => dispatch(fetchProject(projectId))
+  fetchProject: projectId => dispatch(fetchProject(projectId)),
+  deleteProject: projectId => dispatch(deleteProject(projectId))
 })
 
 const ProjectDetailContainer = connect(

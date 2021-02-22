@@ -11,6 +11,11 @@ export const receiveProject = (project) => ({
   project
 })
 
+export const removeProject = (projectId) => ({
+  type: types.REMOVE_PROJECT,
+  projectId
+})
+
 export const startLoading = () => ({
   type: types.START_LOADING
 })
@@ -36,9 +41,13 @@ export const createProject = (project) => dispatch => {
   )
 }
 
-export const editProject = (project, projectId) => dispatch => {
+export const editProject = (project) => dispatch => {
   dispatch(startLoading())
-  ProjectAPI.editProject(project, projectId).then(project =>
+  ProjectAPI.editProject(project, project.id).then(project =>
     dispatch(receiveProject(project))
   )
+}
+
+export const deleteProject = (projectId) => dispatch => {
+  return ProjectAPI.deleteProject(projectId).then(() => dispatch(removeProject(projectId)))
 }

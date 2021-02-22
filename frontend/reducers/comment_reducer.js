@@ -6,6 +6,10 @@ const CommentReducer = (state = {}, action) => {
       return action.comments
     case (types.RECEIVE_COMMENT):
       return action.comment
+    case (types.REMOVE_COMMENT):
+      let newState = Object.assign({}, state)
+      delete newState[action.comment.id]
+      return newState
     default:
       return state;
   }

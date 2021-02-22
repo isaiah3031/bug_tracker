@@ -32,6 +32,15 @@ class ProjectController < ApplicationController
     end
   end
 
+  def destroy
+    @project = Project.find(params[:id])
+    if @project.destroy
+      render json: { success: 'Successfully deleted' }
+    else
+      render json: { errors: 'project not found'}
+    end
+  end
+
   private
 
   def project_params

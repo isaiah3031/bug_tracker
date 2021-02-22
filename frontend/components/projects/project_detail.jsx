@@ -4,8 +4,8 @@ import StoryListContainer from '../story/story_list_container'
 import ToggleNewForm from '../story/toggle_new_form'
 
 const ProjectDetail = (props) => {
+  const projectId = props.match.params.projectId
   useEffect(() => {
-    let projectId = props.match.params.projectId
     props.fetchProject(projectId)
   }, [])
 
@@ -18,17 +18,22 @@ const ProjectDetail = (props) => {
     }
   }
 
-    let currentProject = props.project
-    return (
-      <div>
-        <div className='project-bar'>
-          <h2>{currentProject.name}
-
-          </h2>
-        </div>
-        <StoryListContainer className='main-content'/>
+  let currentProject = props.project
+  return (
+    <div>
+      <div className='project-bar'>
+        <h2>{currentProject.name}
+          <button onClick={() => {
+            props.deleteProject(projectId)
+            props.history.push('/')
+            }}>
+            delete
+          </button>
+        </h2>
       </div>
-    )
+      <StoryListContainer className='main-content'/>
+    </div>
+  )
 }
 
 export default withRouter(ProjectDetail)

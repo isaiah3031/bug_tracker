@@ -23,3 +23,9 @@ export const editStory = (story) =>
     url: `/project/${story.project_id}/stories/${story.id}/edit`,
     data: {story: story}
   })
+
+export const deleteStory = (story) =>
+  $.ajax({
+    type: 'DELETE',
+    url: `/project/${story.project_id}/stories/${story.id}`
+  })

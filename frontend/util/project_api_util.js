@@ -23,3 +23,9 @@ export const fetchProject = (projectId) =>
     type: 'GET',
     url: `/project/${projectId}`
   })
+
+export const deleteProject = (projectId) =>
+  $.ajax({
+    type: 'DELETE',
+    url: `/project/${projectId}`
+  })
