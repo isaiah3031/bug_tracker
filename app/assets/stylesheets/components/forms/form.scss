@@ -1,6 +1,11 @@
 .form-container {
-  width: 50vw;
+  width: 25vw;
   margin: 0 auto;
+  height: 300px;
+  margin-top: 120px;
+}
+.form-container > * {
+  margin: 25px 0 0 0;
 }
 .session-form {
   margin: 100px auto;
