@@ -17,8 +17,9 @@ const Greeting = (props) => {
         </Link>      
         <div className='user-info'>
           <h1>Welcome {props.currentUser.username}</h1>
-          <div onMouseEnter={toggleHover}
-            onMouseLeave={toggleHover}>
+          <div onClick={toggleHover} 
+            onMouseEnter={toggleHover}
+            onMouseLeave={hovered ? toggleHover : null}>
             <img src={ArrowIcon} alt=''/>
             <img src={UserIcon} alt=''/>
             <div className={hovered ? 'session-options' : 'hidden'}>

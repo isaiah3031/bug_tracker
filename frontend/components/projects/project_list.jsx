@@ -23,8 +23,8 @@ const ProjectList = (props) => {
   return (
     <>
     <div className='project-bar'>
-      <div className='hoverable-pj-bar' onMouseEnter={toggleHover}
-          onMouseLeave={toggleHover}>
+      <div className='hoverable-pj-bar' onClick={toggleHover} onMouseEnter={toggleHover}
+          onMouseLeave={hovered ? toggleHover : null}>
         <h2>Choose a Project</h2> 
         <img src={ArrowIcon}/>          
         <ul className={hovered ? 'project-list' : 'hidden'}t>
