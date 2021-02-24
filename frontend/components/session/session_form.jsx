@@ -54,7 +54,7 @@ class SessionForm extends React.Component{
     return (
       <div className='session-page'>
         <div className='toggle-session'>
-          <h1>Welcome To MovieApp</h1>
+          <h1>Bug Hunter</h1>
           <Link to={this.handleLinkTo()}>
             <button>{this.handleLinkTo()}</button>
           </Link>
