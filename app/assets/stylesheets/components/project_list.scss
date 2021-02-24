@@ -1,6 +1,10 @@
+@media only screen and (min-width: 700px) {
+  .project-bar {
+    overflow: hidden;
+  }
+}
 .project-bar {
   width: 100vw;
-  overflow: hidden;
   background-color: white;
   display: flex;
   flex-direction: row;
