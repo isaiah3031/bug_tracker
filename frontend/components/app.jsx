@@ -4,7 +4,8 @@ import { Route, Switch } from 'react-router-dom'
 import LoginFormContainer from './session/login_form_container'
 import SignupFormContainer from './session/signup_form_container'
 import { AuthRoute, ProtectedRoute } from '../util/route_util'
-import ProjectListContainer from './projects/project_list_container'
+// import ProjectListContainer from './projects/project_list_container'
+import Dashboard from './dashboard/dashboard'
 import ProjectDetailContainer from './projects/project_detail_container'
 import NewProjectFormContainer from './projects/new_project_form_container'
 import EditProjectFormContainer from './projects/edit_project_form_container'
@@ -20,7 +21,7 @@ const App = () => (
       <Route exact path='/projects/:projectId' component={ProjectDetailContainer} />
       <AuthRoute path="/login" component={LoginFormContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} />
-      <ProjectListContainer path='/' />
+      <Dashboard path='/' />
     </Switch>
   </div>
 );
