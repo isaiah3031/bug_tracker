@@ -21,48 +21,48 @@ class StoryList extends React.Component {
   // toggles the selected story and allows it to be set to none (-1)
   setSelectedStory(storyId) {
     if (this.state.selectedStory == -1) {
-        this.setState({ selectedStory: storyId})
+      this.setState({ selectedStory: storyId })
     } else if (this.state.selectedStory == storyId) {
-        this.setState({ selectedStory: -1 })
+      this.setState({ selectedStory: -1 })
     } else {
-        this.setState({ selectedStory: storyId })
+      this.setState({ selectedStory: storyId })
     }
   }
 
   // returns a hash of stories sorted into three arrays: icebox, current, backlog
   sortStoriesByIteration(stories) {
-    let icebox = [] 
+    let icebox = []
     let current = []
     let backlog = []
     let finished = []
     stories.map(story => {
-      if (story.iteration == 'icebox'){
-          icebox.push(story)
+      if (story.iteration == 'icebox') {
+        icebox.push(story)
       } else if (story.iteration == 'current') {
-          current.push(story)
+        current.push(story)
       } else if (story.iteration == 'backlog') {
-          backlog.push(story)
+        backlog.push(story)
       } else if (story.iteration == 'finished') {
-          finished.push(story)
+        finished.push(story)
       }
     })
-    return {icebox: icebox, backlog: backlog, current: current, finished: finished}
+    return { icebox: icebox, backlog: backlog, current: current, finished: finished }
   }
 
   // returns an array of stories sorted by their priority
   sortStoriesByPriority() {
-    return Object.values(this.props.stories).sort((storya, storyb) => 
+    return Object.values(this.props.stories).sort((storya, storyb) =>
       parseFloat(storya.priority) - parseFloat(storyb.priority)
     )
   }
 
   // returns start, finished or an empty string depending on string passed to it
   toggleDescription(story) {
-    if (this.state.selectedStory == story.id) { 
-      return story.description 
+    if (this.state.selectedStory == story.id) {
+      return story.description
     } else {
       return `${story.description.substr(0, 60)}...`
-    }  
+    }
   }
 
   updatePriority(story, newPriority) {
@@ -78,7 +78,7 @@ class StoryList extends React.Component {
     this.updatePriority(story, result.destination.index)
   }
 
-  
+
   renderLogin = () => {
     props.history.push('/login')
   }
@@ -93,57 +93,57 @@ class StoryList extends React.Component {
   // [iteration1, iteration2, iteration3, iteration4] => 
   // [story1, story2, story3...]
   render() {
-    if (this.props.stories.id) debugger
     if (Object.values(this.props.stories).length == 0 ||
-        this.props.stories.id) {
-      return <NewStoryFormContainer projectId={this.props.match.params.projectId}/>
+      this.props.stories.id) {
+      return <NewStoryFormContainer projectId={this.props.match.params.projectId} />
     }
     let sortedStories = this.sortStoriesByIteration(this.sortStoriesByPriority())
 
     return (
       <div className='main-content iterations'>
-        {Object.keys(sortedStories).map(iteration => 
+        {Object.keys(sortedStories).map(iteration =>
           <DragDropContext onDragEnd={res => this.handleOnDragEnd(res)}>
             <Droppable droppableId='story-component'>
               {(provided) => (
                 <div className='story-list' {...provided.droppableProps} ref={provided.innerRef}>
-                <h2 className='iteration-header'>{iteration}
-                  {this.props.loggedIn ? 
-                  <ToggleNewForm projectId={this.props.match.params.projectId} iteration={iteration}/> :
-                  renderLogin()
-                }</h2>
-                  {sortedStories[iteration].map((story, index) => 
+                  <h2 className='iteration-header'>{iteration}
+                    {this.props.loggedIn ?
+                      <ToggleNewForm projectId={this.props.match.params.projectId} iteration={iteration} /> :
+                      renderLogin()
+                    }</h2>
+                  {sortedStories[iteration].map((story, index) =>
                     <Draggable key={story.id} draggableId={story.id.toString()} story={story} index={story.priority}>
                       {(provided) => (
                         // Eventually put all of this in a storyPreview component
-                      <ul {...provided.draggableProps } 
-                        {...provided.dragHandleProps}
-                        ref={provided.innerRef}
-                        className='story-component' 
-                        key={story.id}>
-                        <p className='description'
-                          onClick={() => this.setSelectedStory(story.id)}
+                        <ul {...provided.draggableProps}
+                          {...provided.dragHandleProps}
+                          ref={provided.innerRef}
+                          className='story-component'
+                          key={story.id}>
+                          <p className='description'
+                            onClick={() => this.setSelectedStory(story.id)}
                           >
-                          {this.toggleDescription(story)}
-                        </p>
-                        <QuickFormContainer story={story}/>
-                        <StoryDetail 
-                          selectedStory={this.state.selectedStory} 
-                          story={story} 
-                          deleteStory={this.props.deleteStory}/>
-                        <p className='creation-date'>{this.mmyy(story.created_at.substr(5,5))}</p>
-                      </ul>
+                            {this.toggleDescription(story)}
+                          </p>
+                          <QuickFormContainer story={story} />
+                          <StoryDetail
+                            selectedStory={this.state.selectedStory}
+                            story={story}
+                            deleteStory={this.props.deleteStory} />
+                          <p className='creation-date'>{this.mmyy(story.created_at.substr(5, 5))}</p>
+                        </ul>
                       )}
                     </Draggable>
                   )}
                   {provided.placeholder}
-                </div>  
+                </div>
               )}
             </Droppable>
           </DragDropContext>
-      )}
-    </div>
-  )}
+        )}
+      </div>
+    )
+  }
 }
 
 export default withRouter(StoryList)

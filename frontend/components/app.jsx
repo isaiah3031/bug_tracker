@@ -9,11 +9,10 @@ import ProjectDetailContainer from './projects/project_detail_container'
 import NewProjectFormContainer from './projects/new_project_form_container'
 import EditProjectFormContainer from './projects/edit_project_form_container'
 
-
 const App = () => (
   <div>
     <header>
-      <GreetingContainer/>
+      <GreetingContainer />
     </header>
     <Switch>
       <ProtectedRoute path='/projects/:projectId/edit' component={EditProjectFormContainer} />
@@ -21,9 +20,8 @@ const App = () => (
       <Route exact path='/projects/:projectId' component={ProjectDetailContainer} />
       <AuthRoute path="/login" component={LoginFormContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} />
-      <ProjectListContainer path='/'/>
+      <ProjectListContainer path='/' />
     </Switch>
-    
   </div>
 );
 

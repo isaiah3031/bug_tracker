@@ -1,5 +1,3 @@
-# Go through update_priorities slowly with a pen and paper or debugger.
-
 class Story < ApplicationRecord
   belongs_to :project
   has_many :comments, :dependent => :delete_all
@@ -55,10 +53,3 @@ class Story < ApplicationRecord
   end
 end
 
-# s = Story.new
-# s.description = 'adadfsaf'
-# s.story_type = 'bug'
-# s.iteration = 'feature'
-# s.complexity = 1
-# s.project_id = 1
-# s.author_id = 1

@@ -1,73 +1,30 @@
-@media only screen and (min-width: 700px) {
-  .project-bar {
-    overflow: hidden;
-  }
-}
-.project-bar {
+.project-sidemenu {
   width: 100vw;
-  background-color: white;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  h2 {
-    font-size: 30px;
-    padding: 10px;
-    width: fit-content;
-    height: fit-content;
-  }
-  .hover-highlight:hover {
-    h2 {
-      color: #10ac92;
-    }
-  }
-  .hoverable-pj-bar {
-    width: fit-content;
-    display: flex;
-    flex-direction: row;
-
-    img {
-      height: 50px;
-      filter: invert(100%);
-    }
-    .hidden {
-      display: none;
-    }
-    .project-list {
-      position: absolute;
-      background-color: white;
-      border: solid thin black;
-      width: 280px;
-      top: 105px;
-      height: 200px;
-      overflow-y: auto;
-      li {
-        padding: 10px;
-        border-bottom: solid thin black;
-      }
-      li:hover {
-        color: #10ac92;
-        background-color: #eef4f5;
-      }
-    }
-  }
-}
-
-.main-content {
   height: 100vh;
-  width: 100vw;
-  background-color: #eef4f5;
-  .welcome-msg {
-    color: #707070;
-    padding-top: 100px;
-    height: 250px;
-    width: 410px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: auto;
-    h1 {
-      font-size: 35px;
-      font-weight: 300;
-    }
+  background-color: white;
+  li {
+    width: fit-content;
+    padding-left: 15px;
+  }
+
+  li:hover,
+  p:hover {
+    color: #10ac92;
+    cursor: pointer;
+  }
+}
+
+.project-sidemenu > * {
+  padding: 5px;
+}
+
+.project-list {
+  background-color: white;
+}
+// 10ac92
+
+@media only screen and (min-width: 600px) {
+  .project-sidemenu {
+    width: 25vw;
   }
 }
