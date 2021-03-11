@@ -1,16 +1,14 @@
 .vertical-table {
   border: solid thin black;
   background-color: white;
+  height: fit-content;
   max-height: 300px;
   overflow-y: auto;
   padding: 10px;
   width: 100vw;
   .vertical-table-item {
-    border-top: solid thin black;
+    border-bottom: solid thin black;
     margin-top: 5px;
-  }
-  .vertical-table-item:last-child {
-    border-top: none;
   }
 }
 

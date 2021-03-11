@@ -1,0 +1,17 @@
+.user-progress-components,
+.dashboard {
+  display: block;
+}
+
+@media only screen and (min-width: 600px) {
+  .dashboard,
+  .user-progress-components {
+    display: flex;
+    justify-items: flex-start;
+  }
+
+  .user-progress-components {
+    width: 100%;
+    justify-content: space-around;
+  }
+}

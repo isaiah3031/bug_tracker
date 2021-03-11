@@ -34,35 +34,13 @@ const ProjectList = (props) => {
 
   if (props.loading) { return <LoadingIcon />; }
 
-  return (
-    <>
-      <div className='project-sidemenu'>
-        <h2>Choose a Project</h2>
-        {projectDropDown()}
-        <Link className='hover-highlight' to='projects/new'>
-          <p>Create A New Project</p>
-        </Link>
-      </div>
-
-      {/* <div className='main-content'>
-        <div className='welcome-msg'>
-          <h1>Welcome to BugHunter!</h1>
-          <p>
-            You must Login or Sign up before you can view bugs
-        </p>
-          <p>
-            Choose or create a project from the dropdown in the top left corner.
-        </p>
-          <p>
-            You can only edit the bugs on  aproject you have created or that you have admin rights over.
-        </p>
-          <p>
-            Once viewing bugs for a project, you can drag and drop them to change their priority.
-        </p>
-        </div>
-      </div> */}
-    </>
-  )
+  return <div className='project-sidemenu'>
+    <h2>Choose a Project</h2>
+    {projectDropDown()}
+    <Link className='hover-highlight' to='projects/new'>
+      <p>Create A New Project</p>
+    </Link>
+  </div>
 }
 
 export default withRouter(ProjectList)
