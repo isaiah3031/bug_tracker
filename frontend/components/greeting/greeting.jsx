@@ -1,58 +1,27 @@
-import React, { useState } from 'react'
-import {Link} from 'react-router-dom'
+import React from 'react'
+import { Link } from 'react-router-dom'
 import BugIcon from 'images/bug_icon.png'
-import UserIcon from 'images/user_icon.png'
-import ArrowIcon from 'images/arrow_icon.png'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
 
-const Greeting = (props) => {
-  const [hovered, setHovered] = useState(false);
-  const toggleHover = () => setHovered(!hovered);
+const Greeting = ({ currentUser, logout }) => {
+  const isMobile = useMediaQuery('(max-width:600px)')
 
-  if (props.currentUser.username !== undefined){
-    return (
-      <div className='greeting-container'>
-        <Link className='icon' to='/'>
-          <img src={BugIcon} alt=''/>
-          <h1>Bug Hunter</h1>
-        </Link>      
-        <div className='user-info'>
-          <h1>Welcome {props.currentUser.username}</h1>
-          <div onClick={toggleHover} 
-            onMouseEnter={toggleHover}
-            onMouseLeave={hovered ? toggleHover : null}>
-            <img src={ArrowIcon} alt=''/>
-            <img src={UserIcon} alt=''/>
-            <div className={hovered ? 'session-options' : 'hidden'}>
-              <a onClick={() => props.logout()}>Logout</a>  
-            </div>
-          </div>
-        </div>
+  return (
+    <div className='greeting-container'>
+      <Link className='icon' to='/'>
+        <img src={BugIcon} alt='' />
+        {!isMobile && <h1>Bug Hunter</h1>}
+      </Link>
+      <div className={`user-info`}>
+        {!isMobile && currentUser.username && <h2>Welcome {currentUser.username}</h2>}
+        {currentUser.username ?
+          <a onClick={() => logout()}>Logout</a> :
+          <Link to='/signup'>Sign up</Link>
+        }
       </div>
-    )
-  } else {
-    return (
-      <div className='greeting-container'>
-        <Link className='icon' to='/'>
-          <img src={BugIcon} alt=''/>
-          <h1>Bug Hunter</h1>
-        </Link>
-      <div onMouseEnter={toggleHover}
-          onMouseLeave={toggleHover}>
-          <img src={ArrowIcon} alt=''/>
-          <img src={UserIcon} alt=''/>
+    </div >
+  )
 
-        <div className={hovered ? 'session-options' : 'hidden'}>
-          <Link to='/signup'>
-            <a>Sign up</a>
-          </Link>
-          <Link to='/login'>
-            <a>Login</a>
-          </Link>
-        </div>
-
-      </div>
-    </div>
-  )}
 }
 
 export default Greeting;
