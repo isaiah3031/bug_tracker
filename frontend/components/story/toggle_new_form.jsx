@@ -1,6 +1,6 @@
 import React from 'react';
 import NewStoryFormContainer from './new_story_form_container'
-import PlusSign from 'images/plus_sign.png'
+import PlusSign from '../../../app/assets/images/plus_sign.png'
 
 class ToggleNewForm extends React.Component {
   constructor(props) {

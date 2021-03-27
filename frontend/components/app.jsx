@@ -12,7 +12,7 @@ import ProjectListContainer from './projects/project_list_container'
 
 const App = () => (
   <div>
-    <header>
+    <header className='nav-bar'>
       <GreetingContainer />
     </header>
     <Switch>

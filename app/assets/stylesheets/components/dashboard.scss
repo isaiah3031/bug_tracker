@@ -1,17 +1,24 @@
+@import "color_variables";
+
 .user-progress-components,
 .dashboard {
   display: block;
 }
 
-@media only screen and (min-width: 600px) {
-  .dashboard,
-  .user-progress-components {
+@media only screen and (min-width: 800px) {
+  .dashboard {
     display: flex;
     justify-items: flex-start;
   }
 
+  .project-sidemenu {
+    border-right: $light-background 1px solid;
+    margin-right: 28px;
+  }
   .user-progress-components {
-    width: 100%;
-    justify-content: space-around;
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    justify-content: space-between;
   }
 }

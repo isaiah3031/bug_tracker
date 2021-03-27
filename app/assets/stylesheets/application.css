@@ -28,6 +28,6 @@ input {
 }
 
 body {
-  background-color: #eef4f5;
   overflow: hidden;
+  padding: 70px 60px;
 }

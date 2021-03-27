@@ -1,16 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import BugIcon from 'images/bug_icon.png'
+import BugIcon from '../../../app/assets/images/bug_icon.png'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 
 const Greeting = ({ currentUser, logout }) => {
   const isMobile = useMediaQuery('(max-width:600px)')
 
   return (
-    <div className='greeting-container'>
+    <>
       <Link className='icon' to='/'>
-        <img src={BugIcon} alt='' />
-        {!isMobile && <h1>Bug Hunter</h1>}
+        <h1>.bugHunt</h1>
       </Link>
       <div className={`user-info`}>
         {!isMobile && currentUser.username && <h2>Welcome {currentUser.username}</h2>}
@@ -19,7 +18,7 @@ const Greeting = ({ currentUser, logout }) => {
           <Link to='/signup'>Sign up</Link>
         }
       </div>
-    </div >
+    </>
   )
 
 }

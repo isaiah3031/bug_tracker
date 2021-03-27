@@ -1,0 +1,33 @@
+@import "color_variables";
+
+.task-list {
+  border-radius: 18px;
+  padding: 10px 20px;
+  width: 90%;
+  max-height: 70vh;
+  background-color: $light-background;
+  h2 {
+    margin: 10px 0 15px;
+  }
+  .item {
+    background-color: white;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 10px;
+
+    h2 {
+      color: $main-text;
+    }
+
+    p {
+      color: $minor-text;
+    }
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .task-list {
+    width: 44%;
+    max-height: 70vh;
+  }
+}

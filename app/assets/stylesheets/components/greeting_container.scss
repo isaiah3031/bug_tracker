@@ -1,10 +1,12 @@
-.greeting-container {
-  background-color: #10ac92;
-  border-bottom: solid white thin;
+@import "color_variables";
+
+.nav-bar {
+  background-color: transparent;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 110vw;
+  width: 100%;
+  margin-bottom: 30px;
   .user-info,
   .icon {
     display: flex;
@@ -12,15 +14,15 @@
   }
 
   h1 {
-    font-size: 40px;
-    color: white;
+    font-size: 30px;
+    color: $main-text;
     margin: auto 0;
   }
 
   h2,
   a {
-    color: white;
-    font-size: 25px;
+    color: $main-text;
+    font-size: 20px;
   }
 
   img {
@@ -32,8 +34,8 @@
   }
 }
 
-@media only screen and (max-width: 700px) {
-  .greeting-container {
-    width: 500vw;
+@media only screen and (min-width: 700px) {
+  .nav-bar {
+    width: 100%;
   }
 }
