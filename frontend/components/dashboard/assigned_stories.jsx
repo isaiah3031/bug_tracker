@@ -7,7 +7,7 @@ const AssignedStories = ({ currentUser }) => {
   Object.values(currentUser.assigned_stories).map(story => story.iteration == 'current' ?
     incompleteStories.push(story) : finishedStories.push(story))
 
-  return <div className='user-progress-components'>
+  return <div className='task-list-group'>
     <ul className='task-list'>
       <h2>TodoList</h2>
       {

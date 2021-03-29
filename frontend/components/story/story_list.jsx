@@ -100,12 +100,12 @@ class StoryList extends React.Component {
     let sortedStories = this.sortStoriesByIteration(this.sortStoriesByPriority())
 
     return (
-      <div className='main-content iterations'>
+      <div className='main-content task-list-group'>
         {Object.keys(sortedStories).map(iteration =>
           <DragDropContext onDragEnd={res => this.handleOnDragEnd(res)}>
-            <Droppable droppableId='story-component'>
+            <Droppable droppableId='item'>
               {(provided) => (
-                <div className='story-list' {...provided.droppableProps} ref={provided.innerRef}>
+                <div className='task-list' {...provided.droppableProps} ref={provided.innerRef}>
                   <h2 className='iteration-header'>{iteration}
                     {this.props.loggedIn ?
                       <ToggleNewForm projectId={this.props.match.params.projectId} iteration={iteration} /> :
@@ -118,13 +118,13 @@ class StoryList extends React.Component {
                         <ul {...provided.draggableProps}
                           {...provided.dragHandleProps}
                           ref={provided.innerRef}
-                          className='story-component'
+                          className='item'
                           key={story.id}>
-                          <p className='description'
+                          <h2 className='description'
                             onClick={() => this.setSelectedStory(story.id)}
                           >
                             {this.toggleDescription(story)}
-                          </p>
+                          </h2>
                           <QuickFormContainer story={story} />
                           <StoryDetail
                             selectedStory={this.state.selectedStory}

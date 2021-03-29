@@ -1,7 +1,7 @@
 @import "color_variables";
 
-.user-progress-components,
-.dashboard {
+.dashboard,
+.task-list-group {
   display: block;
 }
 
@@ -11,13 +11,9 @@
     justify-items: flex-start;
   }
 
-  .project-sidemenu {
-    border-right: $light-background 1px solid;
-    margin-right: 28px;
-  }
-  .user-progress-components {
+  .task-list-group {
     display: flex;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     justify-content: space-between;
   }

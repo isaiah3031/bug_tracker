@@ -1,15 +1,27 @@
+@import "color_variables";
+
 .project-sidemenu {
   width: 100vw;
   height: 100vh;
   background-color: white;
+  h2 {
+    padding: 0;
+  }
   li {
     width: fit-content;
-    padding-left: 15px;
+    margin-left: 37px;
   }
 
-  li:hover,
-  p:hover {
-    color: #10ac92;
+  .icon {
+    height: 20px;
+    margin-right: 16px;
+  }
+  li {
+    border-bottom: solid thin transparent;
+  }
+
+  li:hover {
+    border-bottom: thin solid #10ac92;
     cursor: pointer;
   }
 }
@@ -23,8 +35,10 @@
 }
 // 10ac92
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 800px) {
   .project-sidemenu {
     width: 25vw;
+    border-right: $light-background 2px solid;
+    margin-right: 28px;
   }
 }

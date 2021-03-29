@@ -8,61 +8,61 @@ $light-green: #eef4f5;
 $light-grey: #e9e9e9;
 $medium-grey: #707070;
 
-.project-name {
-  font-size: 30px;
-  margin: 5px 0;
-  h2 {
-    margin: 0 auto;
-    width: fit-content;
-    display: flex;
-    flex-direction: column;
-  }
-}
+// .project-name {
+//   font-size: 30px;
+//   margin: 5px 0;
+//   h2 {
+//     margin: 0 auto;
+//     width: fit-content;
+//     display: flex;
+//     flex-direction: column;
+//   }
+// }
 
-.iterations {
-  display: flex;
-  justify-content: center;
-  h2 {
-    font-size: 20px;
-    padding: 10px;
-    text-transform: capitalize;
-    background-color: $light-grey;
-    border: solid $medium-grey thin;
-    display: flex;
-    justify-content: space-between;
-  }
-  .story-list {
-    overflow-y: auto;
-    margin: 40px 5px;
-    h3 {
-      font-weight: bold;
-    }
-  }
+// .iterations {
+//   display: flex;
+//   justify-content: center;
+//   h2 {
+//     font-size: 20px;
+//     padding: 10px;
+//     text-transform: capitalize;
+//     background-color: $light-grey;
+//     border: solid $medium-grey thin;
+//     display: flex;
+//     justify-content: space-between;
+//   }
+//   .story-list {
+//     overflow-y: auto;
+//     margin: 40px 5px;
+//     h3 {
+//       font-weight: bold;
+//     }
+//   }
 
-  .story-component {
-    padding: 15px 5px;
-    margin: 10px 0;
-    border: solid $medium-grey thin;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+//   .story-component {
+//     padding: 15px 5px;
+//     margin: 10px 0;
+//     border: solid $medium-grey thin;
+//     background-color: white;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-between;
 
-    .description {
-      margin: 5px;
-    }
-    .creation-date {
-      margin-top: 35px;
-      text-align: right;
-    }
-    h4 {
-      font-weight: 400;
-      display: flex;
-      justify-content: space-between;
-    }
-  }
-  .story-component:hover {
-    cursor: pointer;
-    border-color: $main-green;
-  }
-}
+//     .description {
+//       margin: 5px;
+//     }
+//     .creation-date {
+//       margin-top: 35px;
+//       text-align: right;
+//     }
+//     h4 {
+//       font-weight: 400;
+//       display: flex;
+//       justify-content: space-between;
+//     }
+//   }
+//   .story-component:hover {
+//     cursor: pointer;
+//     border-color: $main-green;
+//   }
+// }

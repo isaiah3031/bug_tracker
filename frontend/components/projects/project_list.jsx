@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { withRouter, Link } from 'react-router-dom'
 import LoadingIcon from '../loading_icon'
+import ProjectIcon from '../../../app/assets/images/projects_icon.svg'
+import PlusIcon from '../../../app/assets/images/plus_sign.png'
 
 const ProjectList = ({ projects, loading, fetchProjects, history }) => {
   useEffect(() => {
@@ -26,10 +28,10 @@ const ProjectList = ({ projects, loading, fetchProjects, history }) => {
   if (loading) { return <LoadingIcon />; }
 
   return <div className='project-sidemenu'>
-    <h2>Choose a Project</h2>
+    <h2><img className='icon' src={ProjectIcon} />Projects</h2>
     {projectDropDown()}
     <Link className='hover-highlight' to='projects/new'>
-      <p>Create A New Project</p>
+      <h2><img className='icon' src={PlusIcon} />New Project</h2>
     </Link>
   </div>
 }
