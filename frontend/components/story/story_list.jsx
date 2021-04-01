@@ -106,7 +106,7 @@ class StoryList extends React.Component {
             <Droppable droppableId='item'>
               {(provided) => (
                 <div className='task-list' {...provided.droppableProps} ref={provided.innerRef}>
-                  <h2 className='iteration-header'>{iteration}
+                  <h2 className='list-title'>{iteration}
                     {this.props.loggedIn ?
                       <ToggleNewForm projectId={this.props.match.params.projectId} iteration={iteration} /> :
                       renderLogin()

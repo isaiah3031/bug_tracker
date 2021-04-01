@@ -7,6 +7,7 @@
   width: 84%;
   max-height: 70vh;
   background-color: $light-background;
+  overflow-y: auto;
   h2 {
     margin: 10px 0 15px;
   }
@@ -15,7 +16,7 @@
     margin: 10px auto;
     padding: 10px;
     border-radius: 10px;
-    overflow-y: auto;
+
     h2 {
       color: $main-text;
     }

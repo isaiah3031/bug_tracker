@@ -14,8 +14,8 @@ const Greeting = ({ currentUser, logout }) => {
       <div className={`user-info`}>
         {!isMobile && currentUser.username && <h2>Welcome {currentUser.username}</h2>}
         {currentUser.username ?
-          <a onClick={() => logout()}>Logout</a> :
-          <Link to='/signup'>Sign up</Link>
+          <Link to='/signup'>Sign up</Link> :
+          <a onClick={() => logout()}>Logout</a>
         }
       </div>
     </>

@@ -28,7 +28,7 @@ const ProjectList = ({ projects, loading, fetchProjects, history }) => {
   if (loading) { return <LoadingIcon />; }
 
   return <div className='project-sidemenu'>
-    <h2><img className='icon' src={ProjectIcon} />Projects</h2>
+    <h2 className='list-title'><img className='icon' src={ProjectIcon} />Projects</h2>
     {projectDropDown()}
     <Link className='hover-highlight' to='projects/new'>
       <h2><img className='icon' src={PlusIcon} />New Project</h2>
