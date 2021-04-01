@@ -2,6 +2,8 @@ About
 
 A SPA built with React and Redux over a rails API to enable CRUD operations on tasks. Uses react-beautiful-dnd to allow users to change the priorities of a task by clicking and dragging up or down. 
 
+ ![Alt Text](https://media.giphy.com/media/8va6qu4xs7Gt42znN7/giphy.gif)
+ 
 Installation
 ```
 * Clone this repository
