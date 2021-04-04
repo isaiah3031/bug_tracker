@@ -29,8 +29,12 @@ input {
 
 body {
   overflow: hidden;
+  background-color: white;
 }
 
+a {
+  cursor: pointer;
+}
 
 @media only screen and (min-width: 800px) {
   body {

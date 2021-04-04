@@ -1,22 +1,25 @@
-input[type="button"] {
-  width: 220px;
-  height: 35px;
+@import "color_variables";
+
+input[type="button"],
+button {
+  padding: 2px 17px;
   font-size: 17px;
-  border: solid thin white;
+  border: solid thin transparent;
   border-radius: 3px;
   color: white;
-  background-color: #10ac92;
+  background-color: $base-color;
 }
 
+.delete-button {
+  background-color: $red;
+}
 .new-story-button {
   img {
     height: 15px;
-    -webkit-transition: -webkit-transform 0.8s ease-in-out;
-    transition: transform 0.8s ease-in-out;
+    transition: all 0.2s ease-in-out;
   }
   img:hover {
     cursor: pointer;
-    -webkit-transform: rotate(180deg);
-    transform: rotate(180deg);
+    transform: scale(1.1);
   }
 }

@@ -1,9 +1,11 @@
+// Essential
+
 @import "color_variables";
 
 .project-sidemenu {
   width: 100vw;
   height: 100vh;
-  background-color: white;
+
   h2 {
     padding: 0;
   }
@@ -21,7 +23,7 @@
   }
 
   li:hover {
-    border-bottom: thin solid #10ac92;
+    border-bottom: thin solid $accent-color;
     cursor: pointer;
   }
 }
@@ -30,15 +32,10 @@
   padding: 5px;
 }
 
-.project-list {
-  background-color: white;
-}
-// 10ac92
-
 @media only screen and (min-width: 800px) {
   .project-sidemenu {
     width: 25vw;
-    border-right: $light-background 2px solid;
+    border-right: $base-color 2px solid;
     margin-right: 28px;
   }
 }

@@ -74,12 +74,14 @@ class StoryDetail extends React.Component {
               </h4>
               <img className='icon' src={story_type == 'bug' ? Bug : Feature} />
             </section>
-            <button id='editForm' onClick={(e) => this.toggleComponent(e)}>
-              {this.state.editForm ? 'Back' : 'Edit'}
-            </button>
-            <button id='commentForm' onClick={(e) => this.toggleComponent(e)}>
-              {this.state.commentForm ? 'Back' : 'Comment'}
-            </button>
+            <section className='properties'>
+              <button id='editForm' onClick={(e) => this.toggleComponent(e)}>
+                {this.state.editForm ? 'Back' : 'Edit'}
+              </button>
+              <button id='commentForm' onClick={(e) => this.toggleComponent(e)}>
+                {this.state.commentForm ? 'Back' : 'Comment'}
+              </button>
+            </section>
             {this.state.commentForm && <CommentFormContainer story={story} />}
             <CommentListContainer story={story} />
           </>

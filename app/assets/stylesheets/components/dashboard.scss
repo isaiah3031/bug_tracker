@@ -1,20 +1,29 @@
 @import "color_variables";
 
 .dashboard,
+.dashboard-task-list,
 .task-list-group {
   display: block;
 }
 
 @media only screen and (min-width: 800px) {
-  .dashboard {
+  .dashboard,
+  .task-list-group,
+  .dashboard-task-list {
     display: flex;
     justify-items: flex-start;
   }
+  .dashboard-task-list {
+    flex-direction: column;
+    width: 100%;
+  }
 
-  .task-list-group {
+  .task-list-group,
+  .dashboard-header {
     display: flex;
     width: 100%;
     margin: 0 auto;
+    flex-direction: row;
     justify-content: space-between;
   }
 }

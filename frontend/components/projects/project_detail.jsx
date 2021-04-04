@@ -10,7 +10,7 @@ const ProjectDetail = (props) => {
   }, [])
 
   const renderForm = (formType) => {
-    switch (formType){
+    switch (formType) {
       case 'edit':
         props.history.push(`/projects/${currentProject.id}/edit`)
       case 'new':
@@ -23,15 +23,15 @@ const ProjectDetail = (props) => {
     <div>
       <div className='project-bar'>
         <h2>{currentProject.name}
-          <button onClick={() => {
+          <button className="delete-button" onClick={() => {
             props.deleteProject(projectId)
             props.history.push('/')
-            }}>
+          }}>
             delete
           </button>
         </h2>
       </div>
-      <StoryListContainer className='main-content'/>
+      <StoryListContainer className='main-content' />
     </div>
   )
 }
